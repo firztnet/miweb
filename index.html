@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Firztnet · Soporte técnico y reparación de ordenadores en Madrid. Rápidos, confiables y con garantía." />
+  <title>Firztnet · Soporte Técnico</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="#hero" aria-label="Ir a inicio">
+        <img src="logo.png" alt="Firztnet logo" class="logo-img"> Firztnet
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menú">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+      <nav id="primary-nav" class="nav" aria-label="Principal">
+        <a href="#hero">Quiénes somos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#clientes">Clientes</a>
+        <!--a href="#contacto">Contacto</a -->
+        <a href="#blog">Blog</a>
+        <a href="#galeria">Trabajos</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="section hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Soporte que sí resuelve</h1>
+          <p>Reparación y optimización de ordenadores con más de 15 años de experiencia. Servicio rápido, confiable y con garantía.</p>
+          <div class="cta-row">
+            <a class="btn primary" href="#contacto">Solicitar diagnóstico</a>
+            <a class="btn ghost" href="https://wa.me/34913252525" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </div>
+        <!-- Hero con imagen de fondo -->
+        <div class="hero-media img-hero" role="img" aria-label="Equipo de escritorio con monitor y torre"></div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="section services">
+      <div class="container">
+        <header class="section-head">
+          <h2>Nuestros <span class="accent">servicios</span></h2>
+          <p class="lead">Soluciones completas para mantener tu equipo en su mejor estado.</p>
+        </header>
+
+        <div class="cards">
+          <article class="card">
+            <img class="card-img" src="images/svc1.webp" alt="" loading="lazy"/>
+            <h3>Diagnóstico y reparación de hardware</h3>
+            <ul>
+              <li>Detección y solución de fallos</li>
+              <li>Reemplazo de discos, RAM, placa, etc.</li>
+              <li>Ampliaciones de rendimiento</li>
+            </ul>
+            <a class="btn small" href="#contacto">+ Info</a>
+          </article>
+
+          <article class="card">
+            <img class="card-img" src="images/svc2.webp" alt="" loading="lazy"/>
+            <h3>Reparación de software y eliminación de virus</h3>
+            <ul>
+              <li>Limpieza de malware/spyware</li>
+              <li>Recuperación del sistema</li>
+              <li>Instalación y configuración</li>
+            </ul>
+            <a class="btn small" href="#contacto">+ Info</a>
+          </article>
+
+          <article class="card">
+            <img class="card-img" src="images/svc3.webp" alt="" loading="lazy"/>
+            <h3>Mantenimiento preventivo</h3>
+            <ul>
+              <li>Limpieza interna/externa</li>
+              <li>Optimización del sistema</li>
+              <li>Copias de seguridad</li>
+            </ul>
+            <a class="btn small" href="#contacto">+ Info</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="clientes" class="section testimonials">
+      <div class="container">
+        <header class="section-head">
+          <h2>Lo que dicen nuestros <span class="accent">clientes</span></h2>
+        </header>
+
+        <div class="carousel" aria-live="polite">
+          <button class="carousel-btn prev" aria-label="Anterior">&larr;</button>
+          <div class="carousel-track">
+            <figure class="testimonial">
+              <blockquote>“El servicio de Firztnet es excepcional. Arreglaron el sobrecalentamiento en muy poco tiempo.”</blockquote>
+              <figcaption>Juan Pérez</figcaption>
+            </figure>
+            <figure class="testimonial">
+              <blockquote>“Excelente atención y resultados. Mi ordenador funciona mejor que nunca.”</blockquote>
+              <figcaption>María López</figcaption>
+            </figure>
+            <figure class="testimonial">
+              <blockquote>“Rápidos, profesionales y con buen precio. Los recomiendo totalmente.”</blockquote>
+              <figcaption>Carlos Ramírez</figcaption>
+            </figure>
+          </div>
+          <button class="carousel-btn next" aria-label="Siguiente">&rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    
+
+    <!-- BLOG -->
+    <section id="blog" class="section blog">
+      <div class="container">
+        <header class="section-head"><h2>Blog</h2></header>
+        <div class="blog-grid">
+          <article class="post card">
+            <h3>Consejos para mantener tu ordenador</h3>
+            <ul><li>Evita el sobrecalentamiento</li><li>Haz copias de seguridad periódicas</li><li>Limpieza segura del equipo</li></ul>
+          </article>
+          <article class="post card">
+            <h3>Novedades tecnológicas</h3>
+            <ul><li>Últimas actualizaciones de Windows</li><li>Comparativa de antivirus</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section id="galeria" class="section gallery">
+      <div class="container">
+        <header class="section-head"><h2>Nuestros <span class="accent">trabajos</span></h2></header>
+        <div class="gallery-grid">
+          <img src="images/gal1.webp" alt="Instalación de disco duro" loading="lazy">
+          <img src="images/gal2.webp" alt="Conexiones traseras de PC" loading="lazy">
+          <img src="images/gal3.webp" alt="Asesoría con cliente" loading="lazy">
+          <img src="images/gal4.webp" alt="Optimización de portátil gaming" loading="lazy">
+          <img src="images/gal5.webp" alt="Mesa de trabajo tecnológica" loading="lazy">
+          <img src="images/gal6.webp" alt="Puestos de trabajo con monitores" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section faq">
+      <div class="container">
+        <header class="section-head"><h2>FAQ</h2></header>
+        <div class="faq-list">
+          <details><summary>¿Cuánto tarda una reparación?</summary><p>Según el caso, normalmente 24–48 horas.</p></details>
+          <details><summary>¿Ofrecen garantía?</summary><p>Sí, todas las reparaciones tienen 90 días de garantía.</p></details>
+          <details><summary>¿Qué marcas reparan?</summary><p>Todas las marcas y modelos: Apple, Dell, HP, Lenovo, y más.</p></details>
+        </div>
+      </div>
+    </section>
+  
+  <!-- Floating Contact Button -->
+  <button id="contact-fab" class="contact-fab" aria-controls="contact-modal" aria-expanded="false" aria-label="Abrir contacto">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+      <path d="M2 3h20v14H6l-4 4V3zm2 2v12.586L6.586 15H20V5H4zm4 2h8v2H8V7zm0 4h6v2H8v-2z"></path>
+    </svg>
+    <span>Contacto</span>
+  </button>
+
+  <!-- Contact Modal -->
+  <div id="contact-modal" class="contact-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <div class="contact-modal__overlay" data-close="true"></div>
+    <div class="contact-modal__dialog" role="document">
+      <header class="contact-modal__header">
+        <h2 id="contactTitle">Contacto</h2>
+        <button class="contact-modal__close" aria-label="Cerrar contacto" data-close="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M18.3 5.71L12 12.01l-6.3-6.3-1.4 1.41 6.29 6.29-6.3 6.3 1.41 1.41 6.3-6.3 6.29 6.3 1.41-1.41-6.3-6.3 6.3-6.29z"></path></svg>
+        </button>
+      </header>
+      <div class="contact-modal__body">
+<div class="container contact-grid">
+        <header class="section-head">
+          <h2>Contacto</h2>
+          <p class="lead">¿Tienes algún problema con tu ordenador? ¡Estamos aquí para ayudarte!</p>
+        </header>
+
+        <div class="contact-details">
+          <p><strong>Dirección:</strong> Biosca 1, Madrid</p>
+          <p><strong>Teléfono:</strong> <a href="tel:+34913252525">913 25 25 25</a></p>
+          <p><strong>Email:</strong> <a href="mailto:firztnet@gmail.com">firztnet@gmail.com</a></p>
+        </div>
+
+        <form id="contact-form" class="card form" novalidate action="https://formspree.io/f/mzzvydlz" method="POST">
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+            <small class="error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+            <small class="error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="telefono">Teléfono (opcional)</label>
+            <input id="telefono" name="telefono" type="tel" autocomplete="tel" pattern="^[0-9+()\-\s]{7,}$" />
+            <small class="error" aria-live="polite"></small>
+          </div>
+
+          <div class="field">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            <small class="error" aria-live="polite"></small>
+          </div>
+
+          <button type="submit" class="btn primary">Enviar</button>
+          <p id="form-ok" class="form-ok" hidden>¡Gracias! Te responderemos pronto.</p>
+        </form>
+      </div>
+      <div class="container map-wrap">
+        <iframe title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Biosca+1,+Madrid&output=embed"></iframe>
+      </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+  <footer class="site-footer">
+    <div class="container"><p>&copy; <span id="year"></span> Firztnet — Todos los derechos reservados.</p></div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

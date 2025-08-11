@@ -211,3 +211,22 @@ p, li{ color: var(--muted); }
 /* Hero outline remains subtle on dark */
 .hero-media{ outline-color: var(--line); }
 
+
+
+/* === Fullscreen sections on desktop (uniform look) === */
+@media (min-width: 1024px){
+  section, .section {
+    min-height: 100vh;          /* fill viewport height on PC */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    /* vertical center */
+    padding: 3rem 0;            /* keep breathing room */
+  }
+  section > .container, .section > .container {
+    margin-inline: auto;
+    width: min(1100px, 92%);
+  }
+  /* Avoid header overlap when navigating with anchors */
+  section, .section { scroll-margin-top: 80px; }
+}
+

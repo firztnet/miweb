@@ -1,246 +1,477 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Firztnet · Soporte técnico y reparación de ordenadores en Madrid. Rápidos, confiables y con garantía." />
-  <title>Firztnet · Soporte Técnico</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Firztnet · Soporte técnico y reparación de ordenadores en Madrid. Rápidos, confiables y con garantía de 90 días.">
+<meta property="og:title" content="Firztnet · Soporte Técnico Madrid">
+<meta property="og:description" content="Reparación y optimización de ordenadores con más de 15 años de experiencia en Madrid.">
+<meta property="og:image" content="https://firztnet.github.io/miweb/logo.png">
+<meta property="og:url" content="https://firztnet.github.io/miweb/">
+<meta name="theme-color" content="#FAF8F4">
+<title>Firztnet · Soporte Técnico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF8F4; --paper-raised:#F3F0E8; --ink:#181B22; --ink-dim:#5B5F6B;
+  --line:#E4DFD4; --blue:#2645C7; --blue-deep:#1B34A0; --copper:#D9622B; --copper-deep:#B84E1E;
+  --sage:#4A8B6F; --sage-bg:#EAF2ED; --white:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif; background:var(--paper); color:var(--ink);
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif; font-weight:600; line-height:1.15; letter-spacing:-0.01em;}
+a{color:inherit; text-decoration:none;}
+img{max-width:100%; display:block;}
+.container{max-width:1120px; margin:0 auto; padding:0 28px;}
+button{font-family:inherit; cursor:pointer;}
+:focus-visible{outline:2.5px solid var(--blue); outline-offset:3px; border-radius:3px;}
+@media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
+
+/* ---------- NAV ---------- */
+#navbar{position:sticky; top:0; z-index:100; background:rgba(250,248,244,0.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+.nav-inner{max-width:1120px; margin:0 auto; padding:16px 28px; display:flex; align-items:center; justify-content:space-between;}
+.logo{font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:700; color:var(--ink);}
+.logo span{color:var(--blue);}
+.nav-links{list-style:none; display:flex; align-items:center; gap:30px;}
+.nav-link{font-size:14.5px; font-weight:500; color:var(--ink-dim); transition:color .15s ease;}
+.nav-link:hover{color:var(--ink);}
+.nav-cta{background:var(--copper); color:#fff !important; padding:9px 18px; border-radius:8px; font-weight:600;}
+.nav-cta:hover{background:var(--copper-deep);}
+.nav-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px;}
+.nav-toggle span{width:22px; height:2px; background:var(--ink);}
+
+/* ---------- HERO ---------- */
+#hero{padding:76px 0 90px;}
+.hero-grid-layout{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+.hero-eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:13.5px; color:var(--ink-dim); margin-bottom:22px;}
+.badge-dot{width:7px; height:7px; border-radius:50%; background:var(--sage); flex-shrink:0;}
+.hero-content h1{font-size:clamp(34px,4.6vw,52px); color:var(--ink); margin-bottom:20px;}
+.hero-sub{font-size:17px; color:var(--ink-dim); max-width:46ch; margin-bottom:32px;}
+.hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:44px;}
+.btn-primary{background:var(--copper); color:#fff; padding:14px 26px; border-radius:9px; font-weight:600; font-size:15px; display:inline-block; transition:background .15s ease, transform .15s ease;}
+.btn-primary:hover{background:var(--copper-deep); transform:translateY(-1px);}
+.btn-wa{background:var(--white); border:1.5px solid var(--line); color:var(--ink); padding:13px 24px; border-radius:9px; font-weight:600; font-size:15px; display:inline-flex; align-items:center; gap:9px; transition:border-color .15s ease;}
+.btn-wa:hover{border-color:var(--sage);}
+.btn-wa svg{fill:#25D366 !important;}
+.hero-stats{display:flex; gap:34px; padding-top:28px; border-top:1px solid var(--line);}
+.stat-num{font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:700; color:var(--blue);}
+.stat-label{font-size:12.5px; color:var(--ink-dim); margin-top:2px;}
+
+/* ilustración técnica del héroe */
+.hero-art{position:relative;}
+.hero-art svg{width:100%; height:auto;}
+
+/* ---------- SERVICIOS ---------- */
+#servicios{padding:70px 0;}
+.services-header{max-width:640px; margin-bottom:52px;}
+.services-header h2{font-size:clamp(26px,3.4vw,34px); margin-bottom:14px;}
+.section-desc{font-size:16px; color:var(--ink-dim); max-width:52ch;}
+.services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line);}
+.service-item{padding:32px 26px 32px 0; border-right:1px solid var(--line);}
+.service-item:last-child{border-right:none;}
+.service-icon{width:40px; height:40px; margin-bottom:20px;}
+.service-icon svg{width:100%; height:100%; stroke:var(--blue); fill:none; stroke-width:1.6;}
+.service-item h3{font-size:18px; margin-bottom:12px;}
+.service-list{list-style:none; display:flex; flex-direction:column; gap:8px;}
+.service-list li{font-size:14.5px; color:var(--ink-dim); padding-left:16px; position:relative;}
+.service-list li::before{content:""; position:absolute; left:0; top:9px; width:5px; height:5px; border-radius:50%; background:var(--copper);}
+
+/* ---------- CLIENTES ---------- */
+#clientes{padding:70px 0; background:var(--paper-raised); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+#clientes h2{font-size:clamp(26px,3.4vw,34px); margin-bottom:40px; max-width:520px;}
+.reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+.review-card{background:var(--white); border:1px solid var(--line); border-radius:12px; padding:26px;}
+.stars{color:var(--copper); font-size:14px; margin-bottom:14px; letter-spacing:2px;}
+.review-text{font-size:14.5px; color:var(--ink); line-height:1.6; margin-bottom:20px;}
+.reviewer{display:flex; align-items:center; gap:10px;}
+.avatar{width:34px; height:34px; border-radius:8px; background:var(--blue); color:#fff; font-family:'Space Grotesk',sans-serif; font-size:12.5px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+.reviewer-name{font-size:13.5px; font-weight:600;}
+
+/* ---------- GALERÍA ---------- */
+#galeria{padding:70px 0;}
+#galeria .services-header{margin-bottom:40px;}
+.gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+.gallery-item{position:relative; border-radius:10px; overflow:hidden; cursor:pointer; aspect-ratio:4/3; background:var(--paper-raised);}
+.gallery-item img{width:100%; height:100%; object-fit:cover; transition:transform .3s ease;}
+.gallery-item:hover img{transform:scale(1.04);}
+.gallery-overlay{position:absolute; inset:0; background:linear-gradient(0deg, rgba(24,27,34,0.72) 0%, transparent 55%); display:flex; align-items:flex-end; padding:14px; opacity:0; transition:opacity .2s ease;}
+.gallery-item:hover .gallery-overlay{opacity:1;}
+.gallery-caption{color:#fff; font-size:13px; font-weight:600;}
+
+.lightbox{display:none; position:fixed; inset:0; background:rgba(24,27,34,0.94); z-index:200; align-items:center; justify-content:center; padding:40px; flex-direction:column;}
+.lightbox.open{display:flex;}
+.lightbox img{max-width:88vw; max-height:78vh; border-radius:8px;}
+.lightbox-caption{color:#fff; margin-top:16px; font-size:14px;}
+.lightbox-close{position:absolute; top:24px; right:28px; background:none; border:none; color:#fff; font-size:22px;}
+
+/* ---------- FAQ ---------- */
+#faq{padding:70px 0; background:var(--paper-raised); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+.faq-container{max-width:760px;}
+#faq h2{font-size:clamp(26px,3.4vw,34px); margin-bottom:36px;}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{width:100%; text-align:left; background:none; border:none; padding:20px 4px; display:flex; justify-content:space-between; align-items:center; font-size:16px; font-weight:600; color:var(--ink);}
+.faq-icon{font-size:20px; color:var(--copper); font-weight:400; transition:transform .2s ease; flex-shrink:0; margin-left:16px;}
+.faq-q[aria-expanded="true"] .faq-icon{transform:rotate(45deg);}
+.faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease; font-size:14.5px; color:var(--ink-dim); line-height:1.65;}
+.faq-item.open .faq-a{max-height:200px; padding-bottom:20px;}
+
+/* ---------- CONTACTO ---------- */
+#contacto{padding:76px 0;}
+.contact-wrap{display:grid; grid-template-columns:0.85fr 1.15fr; gap:0; border-radius:16px; overflow:hidden; border:1px solid var(--line);}
+.contact-info-block{background:var(--ink); color:#fff; padding:44px 38px;}
+.contact-info-block .section-desc-inline{color:#fff;}
+.contact-info-block h2{font-size:28px; color:#fff; margin-bottom:14px;}
+.contact-info-block p{font-size:14.5px; color:#B8BCC6; margin-bottom:28px; line-height:1.6;}
+.contact-detail{display:flex; align-items:center; gap:12px; margin-bottom:16px; font-size:14.5px;}
+.contact-detail svg{width:17px; height:17px; stroke:var(--copper); fill:none; stroke-width:1.8; flex-shrink:0;}
+.contact-detail a{color:#fff;}
+.contact-form{background:var(--white); padding:44px 38px;}
+.form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+.form-group{margin-bottom:16px;}
+.form-group label{display:block; font-size:12.5px; font-weight:600; color:var(--ink-dim); margin-bottom:6px;}
+.form-group input, .form-group textarea{width:100%; padding:11px 13px; border:1.5px solid var(--line); border-radius:8px; font-family:inherit; font-size:14.5px; background:var(--paper); transition:border-color .15s ease;}
+.form-group input:focus, .form-group textarea:focus{border-color:var(--blue); outline:none;}
+.form-group textarea{min-height:90px; resize:vertical;}
+.btn-submit{width:100%; background:var(--blue); color:#fff; border:none; padding:14px; border-radius:9px; font-weight:600; font-size:15px; margin-top:6px; transition:background .15s ease;}
+.btn-submit:hover{background:var(--blue-deep);}
+.btn-submit:disabled{opacity:0.6; cursor:default;}
+.form-success{display:none; background:var(--sage-bg); color:var(--sage); border-radius:8px; padding:12px 14px; font-size:13.5px; margin-top:14px; font-weight:600;}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line); padding:30px 0;}
+.footer-inner{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;}
+footer p{font-size:13px; color:var(--ink-dim);}
+.footer-links{display:flex; gap:22px; font-size:13.5px; color:var(--ink-dim);}
+.footer-links a:hover{color:var(--ink);}
+
+/* ---------- WHATSAPP FLOTANTE ---------- */
+.wa-float{position:fixed; bottom:24px; right:24px; width:54px; height:54px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(37,211,102,0.4); z-index:90; transition:transform .15s ease;}
+.wa-float:hover{transform:scale(1.06);}
+.wa-float svg{width:26px; height:26px;}
+
+/* ---------- entrada del héroe (única animación de carga) ---------- */
+.hero-content > *{opacity:0; animation:heroIn .6s ease forwards;}
+.hero-content h1{animation-delay:.05s;}
+.hero-sub{animation-delay:.15s;}
+.hero-actions{animation-delay:.25s;}
+.hero-stats{animation-delay:.35s;}
+.hero-eyebrow{animation-delay:0s;}
+@keyframes heroIn{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .hero-grid-layout{grid-template-columns:1fr;}
+  .hero-art{order:-1; max-width:380px; margin:0 auto;}
+  .services-grid{grid-template-columns:1fr; border-top:none;}
+  .service-item{border-right:none; border-top:1px solid var(--line); padding:26px 0;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .contact-wrap{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+}
+@media (max-width:680px){
+  .nav-links{position:fixed; top:65px; left:0; right:0; background:var(--paper); flex-direction:column; padding:20px 28px; border-bottom:1px solid var(--line); display:none; gap:16px; align-items:flex-start;}
+  .nav-links.open{display:flex;}
+  .nav-toggle{display:flex;}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .hero-stats{flex-wrap:wrap; gap:24px;}
+}
+</style>
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <a class="logo" href="#hero" aria-label="Ir a inicio">
-        <img src="logo.png" alt="Firztnet logo" class="logo-img"> Firztnet
-      </a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Abrir menú">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
-      <nav id="primary-nav" class="nav" aria-label="Principal">
-        <a href="#hero">Quiénes somos</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#clientes">Clientes</a>
-        <!--a href="#contacto">Contacto</a -->
-        <a href="#blog">Blog</a>
-        <a href="#galeria">Trabajos</a>
-        <a href="#faq">FAQ</a>
-      </nav>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="logo">Firzt<span>net</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#servicios" class="nav-link">Servicios</a></li>
+      <li><a href="#clientes" class="nav-link">Opiniones</a></li>
+      <li><a href="#galeria" class="nav-link">Trabajos</a></li>
+      <li><a href="#faq" class="nav-link">Preguntas</a></li>
+      <li><a href="#contacto" class="nav-cta">Pedir presupuesto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="container hero-grid-layout">
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span class="badge-dot"></span>Disponible ahora en Madrid y Fuenlabrada</div>
+      <h1>Reparamos lo que otros abandonan.</h1>
+      <p class="hero-sub">15 años diagnosticando fallos de hardware y software en Madrid. Presupuesto claro antes de tocar nada, y 90 días de garantía en cada reparación.</p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-primary">Pedir presupuesto gratis</a>
+        <a href="https://wa.me/34913252525" class="btn-wa" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="18" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.335-1.611A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.213-3.76.956.996-3.671-.234-.377A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Años de experiencia</div></div>
+        <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Entrega media</div></div>
+        <div class="stat"><div class="stat-num">90d</div><div class="stat-label">Garantía</div></div>
+      </div>
     </div>
-  </header>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 420 380" xmlns="http://www.w3.org/2000/svg">
+        <rect x="20" y="20" width="380" height="340" rx="14" fill="#FFFFFF" stroke="#E4DFD4" stroke-width="1.5"/>
+        <rect x="50" y="50" width="120" height="80" rx="4" fill="none" stroke="#2645C7" stroke-width="1.6"/>
+        <circle cx="80" cy="70" r="4" fill="#D9622B"/>
+        <circle cx="100" cy="70" r="4" fill="#4A8B6F"/>
+        <circle cx="120" cy="70" r="4" fill="#2645C7"/>
+        <line x1="50" y1="90" x2="170" y2="90" stroke="#E4DFD4" stroke-width="1.2"/>
+        <line x1="60" y1="105" x2="140" y2="105" stroke="#E4DFD4" stroke-width="1.2"/>
+        <line x1="60" y1="115" x2="160" y2="115" stroke="#E4DFD4" stroke-width="1.2"/>
+        <rect x="200" y="50" width="170" height="42" rx="4" fill="none" stroke="#E4DFD4" stroke-width="1.6"/>
+        <line x1="212" y1="71" x2="358" y2="71" stroke="#4A8B6F" stroke-width="2"/>
+        <rect x="50" y="150" width="90" height="90" rx="4" fill="none" stroke="#E4DFD4" stroke-width="1.6"/>
+        <line x1="50" y1="150" x2="140" y2="240" stroke="#E4DFD4" stroke-width="1.2"/>
+        <line x1="140" y1="150" x2="50" y2="240" stroke="#E4DFD4" stroke-width="1.2"/>
+        <circle cx="95" cy="195" r="26" fill="none" stroke="#2645C7" stroke-width="1.8"/>
+        <circle cx="95" cy="195" r="7" fill="#2645C7"/>
+        <rect x="160" y="150" width="210" height="90" rx="4" fill="none" stroke="#E4DFD4" stroke-width="1.6"/>
+        <path d="M180 210 L200 175 L215 200 L230 165 L245 195 L350 195" fill="none" stroke="#D9622B" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <rect x="50" y="260" width="320" height="80" rx="4" fill="none" stroke="#E4DFD4" stroke-width="1.6"/>
+        <text x="70" y="290" font-family="Space Grotesk, sans-serif" font-size="13" fill="#181B22" font-weight="700">DIAGNÓSTICO</text>
+        <text x="70" y="308" font-family="Inter, sans-serif" font-size="10.5" fill="#5B5F6B">Placa base · verificada</text>
+        <text x="70" y="322" font-family="Inter, sans-serif" font-size="10.5" fill="#5B5F6B">Almacenamiento · verificado</text>
+        <circle cx="330" cy="300" r="16" fill="#EAF2ED"/>
+        <path d="M323 300 L328 306 L338 293" fill="none" stroke="#4A8B6F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+</section>
 
-  <main>
-    <!-- HERO -->
-    <section id="hero" class="section hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1>Soporte que sí resuelve</h1>
-          <p>Reparación y optimización de ordenadores con más de 15 años de experiencia. Servicio rápido, confiable y con garantía.</p>
-          <div class="cta-row">
-            <a class="btn primary" href="#contacto">Solicitar diagnóstico</a>
-            <a class="btn ghost" href="https://wa.me/34913252525" target="_blank" rel="noopener">WhatsApp</a>
-          </div>
-        </div>
-        <!-- Hero con imagen de fondo -->
-        <div class="hero-media img-hero" role="img" aria-label="Equipo de escritorio con monitor y torre"></div>
+<section id="servicios">
+  <div class="container">
+    <div class="services-header">
+      <h2>Tres formas de arreglar tu problema</h2>
+      <p class="section-desc">Del diagnóstico hardware a la limpieza de virus. Te decimos qué le pasa a tu equipo antes de cobrarte nada.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Reparación de hardware</h3>
+        <ul class="service-list">
+          <li>Diagnóstico y solución de fallos</li>
+          <li>Cambio de disco, RAM, placa base</li>
+          <li>Ampliaciones de rendimiento</li>
+        </ul>
       </div>
-    </section>
-
-    <!-- SERVICIOS -->
-    <section id="servicios" class="section services">
-      <div class="container">
-        <header class="section-head">
-          <h2>Nuestros <span class="accent">servicios</span></h2>
-          <p class="lead">Soluciones completas para mantener tu equipo en su mejor estado.</p>
-        </header>
-
-        <div class="cards">
-          <article class="card">
-            <img class="card-img" src="images/svc1.webp" alt="" loading="lazy"/>
-            <h3>Diagnóstico y reparación de hardware</h3>
-            <ul>
-              <li>Detección y solución de fallos</li>
-              <li>Reemplazo de discos, RAM, placa, etc.</li>
-              <li>Ampliaciones de rendimiento</li>
-            </ul>
-            <a class="btn small" href="#contacto">+ Info</a>
-          </article>
-
-          <article class="card">
-            <img class="card-img" src="images/svc2.webp" alt="" loading="lazy"/>
-            <h3>Reparación de software y eliminación de virus</h3>
-            <ul>
-              <li>Limpieza de malware/spyware</li>
-              <li>Recuperación del sistema</li>
-              <li>Instalación y configuración</li>
-            </ul>
-            <a class="btn small" href="#contacto">+ Info</a>
-          </article>
-
-          <article class="card">
-            <img class="card-img" src="images/svc3.webp" alt="" loading="lazy"/>
-            <h3>Mantenimiento preventivo</h3>
-            <ul>
-              <li>Limpieza interna/externa</li>
-              <li>Optimización del sistema</li>
-              <li>Copias de seguridad</li>
-            </ul>
-            <a class="btn small" href="#contacto">+ Info</a>
-          </article>
-        </div>
+      <div class="service-item">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2l8 3.5v6c0 5-3.4 8.7-8 10.5-4.6-1.8-8-5.5-8-10.5v-6L12 2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Software y virus</h3>
+        <ul class="service-list">
+          <li>Limpieza de malware y spyware</li>
+          <li>Recuperación del sistema operativo</li>
+          <li>Instalación y configuración</li>
+        </ul>
       </div>
-    </section>
-
-    <!-- TESTIMONIOS -->
-    <section id="clientes" class="section testimonials">
-      <div class="container">
-        <header class="section-head">
-          <h2>Lo que dicen nuestros <span class="accent">clientes</span></h2>
-        </header>
-
-        <div class="carousel" aria-live="polite">
-          <button class="carousel-btn prev" aria-label="Anterior">&larr;</button>
-          <div class="carousel-track">
-            <figure class="testimonial">
-              <blockquote>“El servicio de Firztnet es excepcional. Arreglaron el sobrecalentamiento en muy poco tiempo.”</blockquote>
-              <figcaption>Juan Pérez</figcaption>
-            </figure>
-            <figure class="testimonial">
-              <blockquote>“Excelente atención y resultados. Mi ordenador funciona mejor que nunca.”</blockquote>
-              <figcaption>María López</figcaption>
-            </figure>
-            <figure class="testimonial">
-              <blockquote>“Rápidos, profesionales y con buen precio. Los recomiendo totalmente.”</blockquote>
-              <figcaption>Carlos Ramírez</figcaption>
-            </figure>
-          </div>
-          <button class="carousel-btn next" aria-label="Siguiente">&rarr;</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    
-
-    <!-- BLOG -->
-    <section id="blog" class="section blog">
-      <div class="container">
-        <header class="section-head"><h2>Blog</h2></header>
-        <div class="blog-grid">
-          <article class="post card">
-            <h3>Consejos para mantener tu ordenador</h3>
-            <ul><li>Evita el sobrecalentamiento</li><li>Haz copias de seguridad periódicas</li><li>Limpieza segura del equipo</li></ul>
-          </article>
-          <article class="post card">
-            <h3>Novedades tecnológicas</h3>
-            <ul><li>Últimas actualizaciones de Windows</li><li>Comparativa de antivirus</li></ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALERÍA -->
-    <section id="galeria" class="section gallery">
-      <div class="container">
-        <header class="section-head"><h2>Nuestros <span class="accent">trabajos</span></h2></header>
-        <div class="gallery-grid">
-          <img src="images/gal1.webp" alt="Instalación de disco duro" loading="lazy">
-          <img src="images/gal2.webp" alt="Conexiones traseras de PC" loading="lazy">
-          <img src="images/gal3.webp" alt="Asesoría con cliente" loading="lazy">
-          <img src="images/gal4.webp" alt="Optimización de portátil gaming" loading="lazy">
-          <img src="images/gal5.webp" alt="Mesa de trabajo tecnológica" loading="lazy">
-          <img src="images/gal6.webp" alt="Puestos de trabajo con monitores" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="section faq">
-      <div class="container">
-        <header class="section-head"><h2>FAQ</h2></header>
-        <div class="faq-list">
-          <details><summary>¿Cuánto tarda una reparación?</summary><p>Según el caso, normalmente 24–48 horas.</p></details>
-          <details><summary>¿Ofrecen garantía?</summary><p>Sí, todas las reparaciones tienen 90 días de garantía.</p></details>
-          <details><summary>¿Qué marcas reparan?</summary><p>Todas las marcas y modelos: Apple, Dell, HP, Lenovo, y más.</p></details>
-        </div>
-      </div>
-    </section>
-  
-  <!-- Floating Contact Button -->
-  <button id="contact-fab" class="contact-fab" aria-controls="contact-modal" aria-expanded="false" aria-label="Abrir contacto">
-    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-      <path d="M2 3h20v14H6l-4 4V3zm2 2v12.586L6.586 15H20V5H4zm4 2h8v2H8V7zm0 4h6v2H8v-2z"></path>
-    </svg>
-    <span>Contacto</span>
-  </button>
-
-  <!-- Contact Modal -->
-  <div id="contact-modal" class="contact-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
-    <div class="contact-modal__overlay" data-close="true"></div>
-    <div class="contact-modal__dialog" role="document">
-      <header class="contact-modal__header">
-        <h2 id="contactTitle">Contacto</h2>
-        <button class="contact-modal__close" aria-label="Cerrar contacto" data-close="true">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M18.3 5.71L12 12.01l-6.3-6.3-1.4 1.41 6.29 6.29-6.3 6.3 1.41 1.41 6.3-6.3 6.29 6.3 1.41-1.41-6.3-6.3 6.3-6.29z"></path></svg>
-        </button>
-      </header>
-      <div class="contact-modal__body">
-<div class="container contact-grid">
-        <header class="section-head">
-          <h2>Contacto</h2>
-          <p class="lead">¿Tienes algún problema con tu ordenador? ¡Estamos aquí para ayudarte!</p>
-        </header>
-
-        <div class="contact-details">
-          <p><strong>Dirección:</strong> Biosca 1, Madrid</p>
-          <p><strong>Teléfono:</strong> <a href="tel:+34913252525">913 25 25 25</a></p>
-          <p><strong>Email:</strong> <a href="mailto:firztnet@gmail.com">firztnet@gmail.com</a></p>
-        </div>
-
-        <form id="contact-form" class="card form" novalidate action="https://formspree.io/f/mzzvydlz" method="POST">
-          <div class="field">
-            <label for="nombre">Nombre</label>
-            <input id="nombre" name="nombre" type="text" autocomplete="name" required />
-            <small class="error" aria-live="polite"></small>
-          </div>
-
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
-            <small class="error" aria-live="polite"></small>
-          </div>
-
-          <div class="field">
-            <label for="telefono">Teléfono (opcional)</label>
-            <input id="telefono" name="telefono" type="tel" autocomplete="tel" pattern="^[0-9+()\-\s]{7,}$" />
-            <small class="error" aria-live="polite"></small>
-          </div>
-
-          <div class="field">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-            <small class="error" aria-live="polite"></small>
-          </div>
-
-          <button type="submit" class="btn primary">Enviar</button>
-          <p id="form-ok" class="form-ok" hidden>¡Gracias! Te responderemos pronto.</p>
-        </form>
-      </div>
-      <div class="container map-wrap">
-        <iframe title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Biosca+1,+Madrid&output=embed"></iframe>
-      </div>
+      <div class="service-item">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Mantenimiento preventivo</h3>
+        <ul class="service-list">
+          <li>Limpieza interna y externa</li>
+          <li>Optimización del sistema</li>
+          <li>Copias de seguridad</li>
+        </ul>
       </div>
     </div>
   </div>
+</section>
 
-</main>
+<section id="clientes">
+  <div class="container">
+    <h2>Lo que dicen quienes ya han pasado por aquí</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"El servicio de Firztnet es excepcional. Arreglaron el sobrecalentamiento de mi portátil en muy poco tiempo y con un precio muy razonable."</p>
+        <div class="reviewer"><div class="avatar">JP</div><div class="reviewer-name">Juan Pérez</div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Excelente atención y resultados. Mi ordenador funciona mejor que el día que lo compré. Los recomiendo sin dudarlo."</p>
+        <div class="reviewer"><div class="avatar">ML</div><div class="reviewer-name">María López</div></div>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="review-text">"Rápidos, profesionales y con buen precio. Me rescataron todos los archivos del disco duro que creía perdidos. Increíble."</p>
+        <div class="reviewer"><div class="avatar">CR</div><div class="reviewer-name">Carlos Ramírez</div></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer class="site-footer">
-    <div class="container"><p>&copy; <span id="year"></span> Firztnet — Todos los derechos reservados.</p></div>
-  </footer>
+<section id="galeria">
+  <div class="container">
+    <div class="services-header">
+      <h2>Trabajos recientes</h2>
+      <p class="section-desc">Algunas de las últimas intervenciones en el taller.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('images/gal1.webp','Instalación de disco duro')"><img src="images/gal1.webp" alt="Instalación de disco duro" loading="lazy"><div class="gallery-overlay"><span class="gallery-caption">Instalación de disco duro</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('images/gal4.webp','Portátiles gaming')"><img src="images/gal4.webp" alt="Portátil gaming" loading="lazy"><div class="gallery-overlay"><span class="gallery-caption">Portátiles gaming</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('images/gal5.webp','Mesa de trabajo técnica')"><img src="images/gal5.webp" alt="Mesa de trabajo" loading="lazy"><div class="gallery-overlay"><span class="gallery-caption">Mesa de trabajo técnica</span></div></div>
+      <div class="gallery-item" onclick="openLightbox('images/gal6.webp','Puestos con monitores')"><img src="images/gal6.webp" alt="Puestos de trabajo" loading="lazy"><div class="gallery-overlay"><span class="gallery-caption">Puestos con monitores</span></div></div>
+    </div>
+  </div>
+</section>
 
-  <script src="scripts.js"></script>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">✕</button>
+  <img src="" alt="" id="lightboxImg">
+  <p class="lightbox-caption" id="lightboxCaption"></p>
+</div>
+
+<section id="faq">
+  <div class="container faq-container">
+    <h2>Dudas antes de venir</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Cuánto tarda una reparación?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Según la complejidad del caso, normalmente entre 24 y 48 horas. Para intervenciones más complejas te avisamos con antelación y acordamos el plazo.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Ofrecéis garantía en las reparaciones?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Sí, todas las reparaciones incluyen 90 días de garantía. Si el problema reaparece dentro de ese período, lo solucionamos sin coste adicional.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Qué marcas y modelos reparáis?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Trabajamos con todas las marcas: Apple, Dell, HP, Lenovo, ASUS, Acer, MSI, Toshiba, Sony y más. Tanto portátiles como sobremesa.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿El diagnóstico tiene coste?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">El diagnóstico inicial es gratuito. Solo pagas si decides continuar con la reparación, y siempre tras aceptar el presupuesto por escrito.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Hacéis recogida a domicilio?<span class="faq-icon" aria-hidden="true">+</span></button>
+        <div class="faq-a">Podemos valorarlo según la localización. Consúltanos por WhatsApp o teléfono y lo gestionamos sin problema.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="container">
+    <div class="contact-wrap">
+      <div class="contact-info-block">
+        <h2>¿Problemas con tu equipo?</h2>
+        <p>Escríbenos o llámanos. Te respondemos en menos de 2 horas en horario de atención (Lun–Vie 9–19h, Sáb 9–14h).</p>
+        <div class="contact-detail"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div>Calle Biosca 1, Madrid</div></div>
+        <div class="contact-detail"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8 9.9a16 16 0 006 6l1.4-1.4a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.8 2.2z"/></svg><div><a href="tel:+34913252525">913 25 25 25</a></div></div>
+        <div class="contact-detail"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg><div><a href="mailto:firztnet@gmail.com">firztnet@gmail.com</a></div></div>
+        <div style="margin-top:28px;">
+          <a href="https://wa.me/34913252525" class="btn-wa" target="_blank" rel="noopener" style="background:transparent; border-color:#3A3E4A; color:#fff;">
+            <svg viewBox="0 0 24 24" width="18" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.335-1.611A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.213-3.76.956.996-3.671-.234-.377A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+            Escribir por WhatsApp
+          </a>
+        </div>
+      </div>
+      <div class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required></div>
+          <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="tu@email.com" required></div>
+        </div>
+        <div class="form-group"><label for="telefono">Teléfono (opcional)</label><input type="tel" id="telefono" name="telefono" placeholder="6xx xxx xxx"></div>
+        <div class="form-group"><label for="mensaje">Cuéntanos el problema</label><textarea id="mensaje" name="mensaje" placeholder="Describe qué le pasa a tu equipo…" required></textarea></div>
+        <button type="button" class="btn-submit" id="submitBtn" onclick="handleSubmit()">Enviar mensaje</button>
+        <div class="form-success" id="formSuccess">Mensaje enviado. Te contactamos en breve.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <a href="#hero" class="logo">Firzt<span>net</span></a>
+    <p>© 2026 Firztnet · Calle Biosca 1, Madrid</p>
+    <div class="footer-links"><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/34913252525" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.335-1.611A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.213-3.76.956.996-3.671-.234-.377A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+</a>
+
+<script>
+// Menú móvil
+document.getElementById('navToggle').addEventListener('click', function(){
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.nav-link, .nav-cta').forEach(function(el){
+  el.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
+});
+
+// FAQ acordeón
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.closest('.faq-item');
+    var abierto = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); i.querySelector('.faq-q').setAttribute('aria-expanded','false'); });
+    if(!abierto){ item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+  });
+});
+
+// Lightbox de galería
+function openLightbox(src, caption){
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxImg').alt = caption;
+  document.getElementById('lightboxCaption').textContent = caption;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
+
+// Formulario de contacto → conectado al panel de gestión de Firztnet.
+// Cada envío llega directamente a "Solicitudes", marcado como "Nuevo contacto".
+async function handleSubmit(){
+  var nombre = document.getElementById('nombre').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var telefono = document.getElementById('telefono').value.trim();
+  var mensaje = document.getElementById('mensaje').value.trim();
+  var boton = document.getElementById('submitBtn');
+  var exito = document.getElementById('formSuccess');
+
+  if(!nombre || !mensaje){ alert('Por favor, completa al menos tu nombre y cuéntanos el problema.'); return; }
+  if(!telefono && !email){ alert('Necesitamos al menos un teléfono o un email para poder contactarte.'); return; }
+
+  boton.disabled = true;
+  boton.textContent = 'Enviando...';
+
+  try{
+    var res = await fetch('https://firztnet-backend-production.up.railway.app/api/seguimiento/solicitar-presupuesto', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nombre: nombre,
+        telefono: telefono || 'Sin teléfono (contactar por email)',
+        email: email,
+        mensaje: mensaje
+      })
+    });
+    var datos = await res.json();
+    if(!res.ok) throw new Error(datos.error || 'No se pudo enviar');
+
+    exito.style.display = 'block';
+    document.getElementById('nombre').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('telefono').value = '';
+    document.getElementById('mensaje').value = '';
+    boton.textContent = 'Enviar mensaje';
+  }catch(err){
+    alert('No se pudo enviar el mensaje. Prueba de nuevo o escríbenos por WhatsApp.');
+    boton.textContent = 'Enviar mensaje';
+  }finally{
+    boton.disabled = false;
+  }
+}
+</script>
 </body>
 </html>

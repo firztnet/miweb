@@ -46,8 +46,19 @@ button{font-family:inherit; cursor:pointer;}
 .nav-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px;}
 .nav-toggle span{width:22px; height:2px; background:var(--ink);}
 
+/* ---------- Marco de sección (para dar ritmo visual, alternando tono) ---------- */
+.panel{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:56px 50px;
+  box-shadow:0 2px 10px rgba(24,27,34,0.03);
+}
+.panel-alt{background:var(--paper-raised);}
+
 /* ---------- HERO ---------- */
-#hero{padding:76px 0 90px;}
+#hero{padding:44px 0 0;}
+#hero .container.panel{padding:56px 50px;}
 .hero-grid-layout{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
 .hero-eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:13.5px; color:var(--ink-dim); margin-bottom:22px;}
 .badge-dot{width:7px; height:7px; border-radius:50%; background:var(--sage); flex-shrink:0;}
@@ -68,7 +79,7 @@ button{font-family:inherit; cursor:pointer;}
 .hero-art svg{width:100%; height:auto;}
 
 /* ---------- SERVICIOS ---------- */
-#servicios{padding:70px 0;}
+#servicios{padding:44px 0 0;}
 .services-header{max-width:640px; margin-bottom:52px;}
 .services-header h2{font-size:clamp(26px,3.4vw,34px); margin-bottom:14px;}
 .section-desc{font-size:16px; color:var(--ink-dim); max-width:52ch;}
@@ -83,7 +94,7 @@ button{font-family:inherit; cursor:pointer;}
 .service-list li::before{content:""; position:absolute; left:0; top:9px; width:5px; height:5px; border-radius:50%; background:var(--copper);}
 
 /* ---------- CLIENTES ---------- */
-#clientes{padding:70px 0; background:var(--paper-raised); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+#clientes{padding:44px 0 0;}
 #clientes h2{font-size:clamp(26px,3.4vw,34px); margin-bottom:40px; max-width:520px;}
 .reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
 .review-card{background:var(--white); border:1px solid var(--line); border-radius:12px; padding:26px;}
@@ -94,7 +105,7 @@ button{font-family:inherit; cursor:pointer;}
 .reviewer-name{font-size:13.5px; font-weight:600;}
 
 /* ---------- GALERÍA ---------- */
-#galeria{padding:70px 0;}
+#galeria{padding:44px 0 0;}
 #galeria .services-header{margin-bottom:40px;}
 .gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
 .gallery-item{position:relative; border-radius:10px; overflow:hidden; cursor:pointer; aspect-ratio:4/3; background:var(--paper-raised);}
@@ -111,7 +122,7 @@ button{font-family:inherit; cursor:pointer;}
 .lightbox-close{position:absolute; top:24px; right:28px; background:none; border:none; color:#fff; font-size:22px;}
 
 /* ---------- FAQ ---------- */
-#faq{padding:70px 0; background:var(--paper-raised); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+#faq{padding:44px 0 0;}
 .faq-container{max-width:760px;}
 #faq h2{font-size:clamp(26px,3.4vw,34px); margin-bottom:36px;}
 .faq-item{border-bottom:1px solid var(--line);}
@@ -122,7 +133,7 @@ button{font-family:inherit; cursor:pointer;}
 .faq-item.open .faq-a{max-height:200px; padding-bottom:20px;}
 
 /* ---------- CONTACTO ---------- */
-#contacto{padding:76px 0;}
+#contacto{padding:44px 0 60px;}
 .contact-wrap{display:grid; grid-template-columns:0.85fr 1.15fr; gap:0; border-radius:16px; overflow:hidden; border:1px solid var(--line);}
 .contact-info-block{background:var(--ink); color:#fff; padding:44px 38px;}
 .contact-info-block .section-desc-inline{color:#fff;}
@@ -166,6 +177,7 @@ footer p{font-size:13px; color:var(--ink-dim);}
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:900px){
+  .panel{padding:38px 26px; border-radius:16px;}
   .hero-grid-layout{grid-template-columns:1fr;}
   .hero-art{order:-1; max-width:380px; margin:0 auto;}
   .services-grid{grid-template-columns:1fr; border-top:none;}
@@ -201,7 +213,7 @@ footer p{font-size:13px; color:var(--ink-dim);}
 </nav>
 
 <section id="hero">
-  <div class="container hero-grid-layout">
+  <div class="container hero-grid-layout panel">
     <div class="hero-content">
       <div class="hero-eyebrow"><span class="badge-dot"></span>Disponible ahora en Madrid y Fuenlabrada</div>
       <h1>Reparamos lo que otros abandonan.</h1>
@@ -250,7 +262,7 @@ footer p{font-size:13px; color:var(--ink-dim);}
 </section>
 
 <section id="servicios">
-  <div class="container">
+  <div class="container panel panel-alt">
     <div class="services-header">
       <h2>Tres formas de arreglar tu problema</h2>
       <p class="section-desc">Del diagnóstico hardware a la limpieza de virus. Te decimos qué le pasa a tu equipo antes de cobrarte nada.</p>
@@ -288,7 +300,7 @@ footer p{font-size:13px; color:var(--ink-dim);}
 </section>
 
 <section id="clientes">
-  <div class="container">
+  <div class="container panel">
     <h2>Lo que dicen quienes ya han pasado por aquí</h2>
     <div class="reviews-grid">
       <div class="review-card">
@@ -311,7 +323,7 @@ footer p{font-size:13px; color:var(--ink-dim);}
 </section>
 
 <section id="galeria">
-  <div class="container">
+  <div class="container panel panel-alt">
     <div class="services-header">
       <h2>Trabajos recientes</h2>
       <p class="section-desc">Algunas de las últimas intervenciones en el taller.</p>
@@ -332,7 +344,7 @@ footer p{font-size:13px; color:var(--ink-dim);}
 </div>
 
 <section id="faq">
-  <div class="container faq-container">
+  <div class="container faq-container panel">
     <h2>Dudas antes de venir</h2>
     <div class="faq-grid">
       <div class="faq-item">

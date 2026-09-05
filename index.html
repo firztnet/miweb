@@ -602,7 +602,8 @@ async function handleSubmit(){
         nombre: nombre,
         telefono: telefono || 'Sin teléfono (contactar por email)',
         email: email,
-        mensaje: mensaje
+        mensaje: mensaje,
+        negocio: 'firztnet'
       })
     });
     var datos = await res.json();
@@ -612,4 +613,60 @@ async function handleSubmit(){
     document.getElementById('nombre').value = '';
     document.getElementById('email').value = '';
     document.getElementById('telefono').value = '';
-    document.ge
+    document.getElementById('mensaje').value = '';
+    boton.textContent = 'Enviar mensaje';
+  }catch(err){
+    alert('No se pudo enviar el mensaje. Prueba de nuevo o escríbenos por WhatsApp.');
+    boton.textContent = 'Enviar mensaje';
+  }finally{
+    boton.disabled = false;
+  }
+}
+
+// Contador de visitas propio (sin cookies, sin datos personales — solo cuenta, no identifica)
+var API_ESTADISTICAS = 'https://firztnet-backend-production.up.railway.app/api/estadisticas';
+var SITIO_ACTUAL = 'firztnet';
+
+fetch(API_ESTADISTICAS + '/visita', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    sitio: SITIO_ACTUAL,
+    ruta: window.location.pathname + window.location.hash,
+    referido: document.referrer || 'directo',
+    dispositivo: window.innerWidth <= 768 ? 'movil' : 'escritorio',
+  }),
+}).catch(function(){ /* si falla, no pasa nada — nunca debe romper la navegación del visitante */ });
+
+function registrarEvento(tipo, etiqueta){
+  fetch(API_ESTADISTICAS + '/evento', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ sitio: SITIO_ACTUAL, tipo: tipo, etiqueta: etiqueta }),
+  }).catch(function(){ /* igual que arriba: si falla, no debe notarse en la navegación */ });
+}
+
+// Clics en los botones importantes — añade data-evento="lo-que-sea" a cualquier botón que quieras seguir
+document.querySelectorAll('[data-evento]').forEach(function(el){
+  el.addEventListener('click', function(){
+    registrarEvento('clic', el.getAttribute('data-evento'));
+  });
+});
+
+// Qué secciones ve la gente al hacer scroll (una vez por sección, por visita)
+if('IntersectionObserver' in window){
+  var observadorSecciones = new IntersectionObserver(function(entradas){
+    entradas.forEach(function(entrada){
+      if(entrada.isIntersecting){
+        registrarEvento('seccion_vista', 'seccion_' + entrada.target.id);
+        observadorSecciones.unobserve(entrada.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('section[id]').forEach(function(seccion){
+    observadorSecciones.observe(seccion);
+  });
+}
+</script>
+</body>
+</html>

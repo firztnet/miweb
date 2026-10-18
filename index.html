@@ -1,672 +1,842 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Firztnet · Soporte técnico y reparación de ordenadores en Madrid. Rápidos, confiables y con garantía de 90 días.">
-<meta property="og:title" content="Firztnet · Soporte Técnico Madrid">
-<meta property="og:description" content="Reparación y optimización de ordenadores con más de 15 años de experiencia en Madrid.">
-<meta property="og:image" content="https://firztnet.github.io/miweb/logo.png">
-<meta property="og:url" content="https://firztnet.github.io/miweb/">
-<meta name="theme-color" content="#FAF8F4">
-<title>Firztnet · Soporte Técnico</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --paper:#EFEAE0; --paper-raised:#FBF9F5; --ink:#181B22; --ink-dim:#5B5F6B;
-  --line:#D8CFBE; --blue:#2645C7; --blue-deep:#1B34A0; --copper:#D9622B; --copper-deep:#B84E1E;
-  --sage:#4A8B6F; --sage-bg:#EAF2ED; --white:#FFFFFF;
-  --tint-blue:#EBEEFA; --tint-copper:#FCF1EC; --tint-blue-line:#C7D0EF; --tint-copper-line:#F0D6C4;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  font-family:'Inter',sans-serif; background:var(--paper); color:var(--ink);
-  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
-}
-h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif; font-weight:600; line-height:1.15; letter-spacing:-0.01em;}
-a{color:inherit; text-decoration:none;}
-img{max-width:100%; display:block;}
-.container{max-width:1120px; margin:0 auto; padding:0 28px;}
-button{font-family:inherit; cursor:pointer;}
-:focus-visible{outline:2.5px solid var(--blue); outline-offset:3px; border-radius:3px;}
-@media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important;} }
-
-/* ---------- NAV ---------- */
-#navbar{position:sticky; top:0; z-index:100; background:rgba(250,248,244,0.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
-.nav-inner{max-width:1120px; margin:0 auto; padding:16px 28px; display:flex; align-items:center; justify-content:space-between;}
-.logo{font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:700; color:var(--ink);}
-.logo span{color:var(--blue);}
-.nav-links{list-style:none; display:flex; align-items:center; gap:30px;}
-.nav-link{font-size:14.5px; font-weight:500; color:var(--ink-dim); transition:color .15s ease;}
-.nav-link:hover{color:var(--ink);}
-.nav-cta{background:var(--copper); color:#fff !important; padding:9px 18px; border-radius:8px; font-weight:600;}
-.nav-cta:hover{background:var(--copper-deep);}
-.nav-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; padding:6px;}
-.nav-toggle span{width:22px; height:2px; background:var(--ink);}
-
-/* ---------- Marco de sección (para dar ritmo visual, alternando tono) ---------- */
-.panel{
-  background:var(--tint-blue);
-  border:1.5px solid var(--tint-blue-line);
-  border-radius:22px;
-  padding:56px 50px;
-  box-shadow:0 10px 28px -14px rgba(24,27,34,0.16);
-}
-.panel-alt{background:var(--tint-copper); border-color:var(--tint-copper-line);}
-.panel-photo{
-  background-image:linear-gradient(160deg, rgba(24,27,34,0.82) 10%, rgba(24,27,34,0.6) 100%), url('https://images.unsplash.com/photo-1562408590-e32931084e23?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover; background-position:center; border-color:transparent;
-}
-.panel-photo h2{color:#fff;}
-
-/* ---------- HERO ---------- */
-#hero{padding:0;}
-.hero-photo{
-  position:relative; min-height:640px; display:flex; align-items:flex-end;
-  background-image:linear-gradient(180deg, rgba(24,27,34,0.15) 0%, rgba(24,27,34,0.72) 100%), url('images/gal5.webp');
-  background-size:cover; background-position:center;
-}
-.hero-photo-inner{width:100%; padding:64px 28px 56px; max-width:720px; margin:0 auto; text-align:center;}
-.hero-eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:13.5px; color:rgba(255,255,255,0.88); margin-bottom:18px; justify-content:center;}
-.badge-dot{width:7px; height:7px; border-radius:50%; background:var(--sage); flex-shrink:0;}
-.hero-photo h1{font-size:clamp(36px,5.2vw,58px); color:#fff; margin-bottom:16px;}
-.hero-sub{font-size:17px; color:rgba(255,255,255,0.86); max-width:48ch; margin:0 auto 30px;}
-.hero-actions{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:36px; justify-content:center;}
-.btn-primary{background:var(--copper); color:#fff; padding:14px 26px; border-radius:9px; font-weight:600; font-size:15px; display:inline-block; transition:background .15s ease, transform .15s ease;}
-.btn-primary:hover{background:var(--copper-deep); transform:translateY(-1px);}
-.btn-wa{background:var(--white); border:1.5px solid var(--line); color:var(--ink); padding:13px 24px; border-radius:9px; font-weight:600; font-size:15px; display:inline-flex; align-items:center; gap:9px; transition:border-color .15s ease;}
-.btn-wa:hover{border-color:var(--sage);}
-.btn-wa svg{fill:#25D366 !important;}
-.hero-stats{display:flex; gap:34px; padding-top:28px; border-top:1px solid rgba(255,255,255,0.25); justify-content:center;}
-.stat-num{font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:700; color:#fff;}
-.stat-label{font-size:12.5px; color:rgba(255,255,255,0.75); margin-top:2px;}
-
-/* ---------- SERVICIOS ---------- */
-#servicios{padding:44px 0 0;}
-.services-header{max-width:640px; margin-bottom:52px;}
-.services-photo{border-radius:16px; overflow:hidden; margin-bottom:44px; max-height:340px;}
-.services-photo img{width:100%; height:340px; object-fit:cover; display:block;}
-.services-header h2{font-size:clamp(26px,3.4vw,34px); margin-bottom:14px;}
-.section-desc{font-size:16px; color:var(--ink-dim); max-width:52ch;}
-.services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line);}
-.service-item{padding:32px 26px 32px 0; border-right:1px solid var(--line);}
-.service-item:last-child{border-right:none;}
-.service-icon{width:40px; height:40px; margin-bottom:20px;}
-.service-icon svg{width:100%; height:100%; stroke:var(--blue); fill:none; stroke-width:1.6;}
-.service-item h3{font-size:18px; margin-bottom:12px;}
-.service-list{list-style:none; display:flex; flex-direction:column; gap:8px;}
-.service-list li{font-size:14.5px; color:var(--ink-dim); padding-left:16px; position:relative;}
-.service-list li::before{content:""; position:absolute; left:0; top:9px; width:5px; height:5px; border-radius:50%; background:var(--copper);}
-
-/* ---------- CLIENTES ---------- */
-#clientes{padding:44px 0 0;}
-#clientes h2{font-size:clamp(26px,3.4vw,34px); margin-bottom:40px; max-width:520px;}
-.reviews-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-.review-card{background:var(--white); border:1px solid var(--line); border-radius:12px; padding:26px;}
-.stars{color:var(--copper); font-size:14px; margin-bottom:14px; letter-spacing:2px;}
-.review-text{font-size:14.5px; color:var(--ink); line-height:1.6; margin-bottom:20px;}
-.reviewer{display:flex; align-items:center; gap:10px;}
-.avatar{width:34px; height:34px; border-radius:8px; background:var(--blue); color:#fff; font-family:'Space Grotesk',sans-serif; font-size:12.5px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0;}
-.reviewer-name{font-size:13.5px; font-weight:600;}
-
-/* ---------- GALERÍA ---------- */
-#galeria{padding:44px 0 0;}
-#galeria .services-header{margin-bottom:40px;}
-.gallery-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
-
-/* ---------- Portátiles recomendados (efecto de inclinación 3D, solo CSS) ---------- */
-.tilt-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; perspective:1200px;}
-.tilt-card{
-  position:relative; display:block; border-radius:14px; overflow:hidden; aspect-ratio:4/3;
-  background:var(--paper-raised); box-shadow:0 10px 24px -12px rgba(24,27,34,0.25);
-  transform-style:preserve-3d; transition:transform .12s ease-out, box-shadow .25s ease;
-  will-change:transform; opacity:0;
-  transform:perspective(1200px) rotateY(-32deg) rotateX(14deg) translateY(50px) translateZ(-60px) scale(0.8);
-}
-.tilt-card:hover{box-shadow:0 26px 46px -14px rgba(24,27,34,0.4);}
-.tilt-card img{width:100%; height:100%; object-fit:cover; display:block; pointer-events:none;}
-.tilt-shine{
-  position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .25s ease;
-  background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.12) 28%, transparent 60%);
-  mix-blend-mode:overlay;
-}
-.tilt-card:hover .tilt-shine{opacity:1;}
-.tilt-label{
-  position:absolute; left:0; right:0; bottom:0; padding:16px 14px;
-  background:linear-gradient(0deg, rgba(24,27,34,0.78) 0%, transparent 70%);
-  color:#fff; font-weight:600; font-size:14px; pointer-events:none;
-}
-@keyframes tiltCardIn{
-  to{ opacity:1; transform:perspective(1200px) rotateY(0deg) rotateX(0deg) translateY(0) translateZ(0) scale(1); }
-}
-#recomendados.in-view .tilt-card{animation:tiltCardIn .85s cubic-bezier(.16,.9,.25,1) forwards;}
-#recomendados.in-view .tilt-card:nth-child(1){animation-delay:.05s;}
-#recomendados.in-view .tilt-card:nth-child(2){animation-delay:.22s;}
-#recomendados.in-view .tilt-card:nth-child(3){animation-delay:.39s;}
-@media (prefers-reduced-motion: reduce){
-  .tilt-card{opacity:1; transform:none;}
-  #recomendados.in-view .tilt-card{animation:none;}
-}
-.gallery-item{position:relative; border-radius:10px; overflow:hidden; cursor:pointer; aspect-ratio:4/3; background:var(--paper-raised);}
-.gallery-item img{width:100%; height:100%; object-fit:cover; transition:transform .3s ease;}
-.gallery-item:hover img{transform:scale(1.04);}
-.gallery-overlay{position:absolute; inset:0; background:linear-gradient(0deg, rgba(24,27,34,0.72) 0%, transparent 55%); display:flex; align-items:flex-end; padding:14px; opacity:0; transition:opacity .2s ease;}
-
-/* ---------- Promoción de Firztweb (mismo efecto de inclinación, colores propios de esa marca) ---------- */
-#firztweb-promo{padding:20px 0 44px;}
-.fw-promo-wrap{
-  background:linear-gradient(135deg, #12141A 0%, #1B1E27 100%);
-  border-radius:22px; padding:52px 50px; display:grid; grid-template-columns:1.1fr 0.9fr; gap:44px; align-items:center;
-  box-shadow:0 20px 50px -20px rgba(24,27,34,0.4);
-}
-.fw-promo-eyebrow{font-size:13px; color:#5B5FEF; font-weight:600; margin-bottom:12px;}
-.fw-promo-text h2{color:#fff; font-size:clamp(24px,3vw,30px); margin-bottom:14px;}
-.fw-promo-text p{color:#B8BCC6; font-size:14.5px; line-height:1.65; margin-bottom:24px;}
-.fw-promo-text p strong{color:#fff;}
-.fw-promo-demo-wrap{perspective:1200px;}
-.fw-promo-card{
-  position:relative; border-radius:16px; overflow:hidden; aspect-ratio:4/3;
-  background:linear-gradient(135deg, #5B5FEF 0%, #8B5CF6 100%);
-  box-shadow:0 16px 40px -14px rgba(91,95,239,0.55);
-  transform-style:preserve-3d; transition:transform .12s ease-out; will-change:transform;
-  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px;
-}
-.fw-promo-shine{position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .25s ease;
-  background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(255,255,255,0.45) 0%, transparent 55%);
-  mix-blend-mode:overlay;}
-.fw-promo-card:hover .fw-promo-shine{opacity:1;}
-.fw-promo-label{color:#fff; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:17px;}
-.fw-promo-sub{color:rgba(255,255,255,0.8); font-size:12px;}
-@media (max-width:900px){
-  .fw-promo-wrap{grid-template-columns:1fr; padding:34px 26px;}
-  .fw-promo-demo-wrap{order:-1; max-width:280px; margin:0 auto;}
-}
-.gallery-item:hover .gallery-overlay{opacity:1;}
-.gallery-caption{color:#fff; font-size:13px; font-weight:600;}
-
-.lightbox{display:none; position:fixed; inset:0; background:rgba(24,27,34,0.94); z-index:200; align-items:center; justify-content:center; padding:40px; flex-direction:column;}
-.lightbox.open{display:flex;}
-.lightbox img{max-width:88vw; max-height:78vh; border-radius:8px;}
-.lightbox-caption{color:#fff; margin-top:16px; font-size:14px;}
-.lightbox-close{position:absolute; top:24px; right:28px; background:none; border:none; color:#fff; font-size:22px;}
-
-/* ---------- FAQ ---------- */
-#faq{padding:44px 0 0;}
-.faq-container{max-width:760px;}
-#faq h2{font-size:clamp(26px,3.4vw,34px); margin-bottom:36px;}
-.faq-item{border-bottom:1px solid var(--line);}
-.faq-q{width:100%; text-align:left; background:none; border:none; padding:20px 4px; display:flex; justify-content:space-between; align-items:center; font-size:16px; font-weight:600; color:var(--ink);}
-.faq-icon{font-size:20px; color:var(--copper); font-weight:400; transition:transform .2s ease; flex-shrink:0; margin-left:16px;}
-.faq-q[aria-expanded="true"] .faq-icon{transform:rotate(45deg);}
-.faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease; font-size:14.5px; color:var(--ink-dim); line-height:1.65;}
-.faq-item.open .faq-a{max-height:200px; padding-bottom:20px;}
-
-/* ---------- CONTACTO ---------- */
-#contacto{padding:44px 0 60px;}
-.contact-wrap{display:grid; grid-template-columns:0.85fr 1.15fr; gap:0; border-radius:16px; overflow:hidden; border:1px solid var(--line);}
-.contact-info-block{background:var(--ink); color:#fff; padding:44px 38px;}
-.contact-info-block .section-desc-inline{color:#fff;}
-.contact-info-block h2{font-size:28px; color:#fff; margin-bottom:14px;}
-.contact-info-block p{font-size:14.5px; color:#B8BCC6; margin-bottom:28px; line-height:1.6;}
-.contact-detail{display:flex; align-items:center; gap:12px; margin-bottom:16px; font-size:14.5px;}
-.contact-detail svg{width:17px; height:17px; stroke:var(--copper); fill:none; stroke-width:1.8; flex-shrink:0;}
-.contact-detail a{color:#fff;}
-.contact-form{background:var(--white); padding:44px 38px;}
-.form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-.form-group{margin-bottom:16px;}
-.form-group label{display:block; font-size:12.5px; font-weight:600; color:var(--ink-dim); margin-bottom:6px;}
-.form-group input, .form-group textarea{width:100%; padding:11px 13px; border:1.5px solid var(--line); border-radius:8px; font-family:inherit; font-size:14.5px; background:var(--paper); transition:border-color .15s ease;}
-.form-group input:focus, .form-group textarea:focus{border-color:var(--blue); outline:none;}
-.form-group textarea{min-height:90px; resize:vertical;}
-.btn-submit{width:100%; background:var(--blue); color:#fff; border:none; padding:14px; border-radius:9px; font-weight:600; font-size:15px; margin-top:6px; transition:background .15s ease;}
-.btn-submit:hover{background:var(--blue-deep);}
-.btn-submit:disabled{opacity:0.6; cursor:default;}
-.form-success{display:none; background:var(--sage-bg); color:var(--sage); border-radius:8px; padding:12px 14px; font-size:13.5px; margin-top:14px; font-weight:600;}
-
-/* ---------- FOOTER ---------- */
-footer{border-top:1px solid var(--line); padding:30px 0;}
-.footer-inner{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px;}
-footer p{font-size:13px; color:var(--ink-dim);}
-.footer-links{display:flex; gap:22px; font-size:13.5px; color:var(--ink-dim);}
-.footer-links a:hover{color:var(--ink);}
-
-/* ---------- WHATSAPP FLOTANTE ---------- */
-.wa-float{position:fixed; bottom:24px; right:24px; width:54px; height:54px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(37,211,102,0.4); z-index:90; transition:transform .15s ease;}
-.wa-float:hover{transform:scale(1.06);}
-.wa-float svg{width:26px; height:26px;}
-
-/* ---------- entrada del héroe (única animación de carga) ---------- */
-.hero-photo-inner > *{opacity:0; animation:heroIn .6s ease forwards;}
-.hero-photo h1{animation-delay:.05s;}
-.hero-sub{animation-delay:.15s;}
-.hero-actions{animation-delay:.25s;}
-.hero-stats{animation-delay:.35s;}
-.hero-eyebrow{animation-delay:0s;}
-@keyframes heroIn{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width:900px){
-  .panel{padding:38px 26px; border-radius:16px;}
-  .services-grid{grid-template-columns:1fr; border-top:none;}
-  .service-item{border-right:none; border-top:1px solid var(--line); padding:26px 0;}
-  .reviews-grid{grid-template-columns:1fr;}
-  .gallery-grid{grid-template-columns:1fr 1fr;}
-  .tilt-grid{grid-template-columns:1fr 1fr;}
-  .contact-wrap{grid-template-columns:1fr;}
-  .form-row{grid-template-columns:1fr;}
-}
-@media (max-width:680px){
-  .nav-links{position:fixed; top:65px; left:0; right:0; background:var(--paper); flex-direction:column; padding:20px 28px; border-bottom:1px solid var(--line); display:none; gap:16px; align-items:flex-start;}
-  .nav-links.open{display:flex;}
-  .nav-toggle{display:flex;}
-  .gallery-grid{grid-template-columns:1fr 1fr;}
-  .hero-stats{flex-wrap:wrap; gap:24px; justify-content:flex-start;}
-  .hero-photo{min-height:520px;}
-  .hero-photo-inner{text-align:left; padding:44px 24px 40px;}
-  .hero-eyebrow, .hero-actions{justify-content:flex-start;}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="description" content="Firztnet · Reparación y soporte técnico de ordenadores en Madrid. Diagnóstico gratis, presupuesto antes de empezar, 90 días de garantía.">
+  <meta property="og:title" content="Firztnet · Soporte Técnico Madrid">
+  <meta property="og:description" content="15 años reparando portátiles, PCs y Mac en Madrid. Rápidos, honestos y con garantía por escrito.">
+  <meta property="og:image" content="https://firztnet.es/images/og.webp">
+  <meta property="og:url" content="https://firztnet.es/">
+  <meta name="theme-color" content="#070b14">
+  <title>Firztnet · Soporte Técnico & Reparación en Madrid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="#hero" class="logo">Firzt<span>net</span></a>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#servicios" class="nav-link">Servicios</a></li>
-      <li><a href="#clientes" class="nav-link">Opiniones</a></li>
-      <li><a href="#galeria" class="nav-link">Trabajos</a></li>
-      <li><a href="#faq" class="nav-link">Preguntas</a></li>
-      <li><a href="#contacto" class="nav-cta" data-evento="boton_presupuesto_nav">Pedir presupuesto</a></li>
-    </ul>
-  </div>
-</nav>
-
-<section id="hero">
-  <div class="hero-photo">
-    <div class="hero-photo-inner">
-      <div class="hero-eyebrow"><span class="badge-dot"></span>Disponible ahora en Madrid y Fuenlabrada</div>
-      <h1>Reparamos lo que otros abandonan.</h1>
-      <p class="hero-sub">15 años diagnosticando fallos de hardware y software en Madrid. Presupuesto claro antes de tocar nada, y 90 días de garantía en cada reparación.</p>
-      <div class="hero-actions">
-        <a href="#contacto" class="btn-primary" data-evento="boton_presupuesto_hero">Pedir presupuesto gratis</a>
-        <a href="https://wa.me/34913252525" class="btn-wa" target="_blank" rel="noopener" data-evento="boton_whatsapp_hero">
-          <svg viewBox="0 0 24 24" width="18" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.335-1.611A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.213-3.76.956.996-3.671-.234-.377A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-          WhatsApp
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num">15+</div><div class="stat-label">Años de experiencia</div></div>
-        <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Entrega media</div></div>
-        <div class="stat"><div class="stat-num">90d</div><div class="stat-label">Garantía</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="servicios">
-  <div class="container panel panel-alt">
-    <div class="services-header">
-      <h2>Tres formas de arreglar tu problema</h2>
-      <p class="section-desc">Del diagnóstico hardware a la limpieza de virus. Te decimos qué le pasa a tu equipo antes de cobrarte nada.</p>
-    </div>
-    <div class="services-photo">
-      <img src="https://images.unsplash.com/photo-1604754742629-3e5728249d73?auto=format&fit=crop&w=1400&q=80" alt="Técnico instalando una tarjeta gráfica en un ordenador" loading="lazy">
-    </div>
-    <div class="services-grid">
-      <div class="service-item">
-        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Reparación de hardware</h3>
-        <ul class="service-list">
-          <li>Diagnóstico y solución de fallos</li>
-          <li>Cambio de disco, RAM, placa base</li>
-          <li>Ampliaciones de rendimiento</li>
-        </ul>
-      </div>
-      <div class="service-item">
-        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2l8 3.5v6c0 5-3.4 8.7-8 10.5-4.6-1.8-8-5.5-8-10.5v-6L12 2z" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Software y virus</h3>
-        <ul class="service-list">
-          <li>Limpieza de malware y spyware</li>
-          <li>Recuperación del sistema operativo</li>
-          <li>Instalación y configuración</li>
-        </ul>
-      </div>
-      <div class="service-item">
-        <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Mantenimiento preventivo</h3>
-        <ul class="service-list">
-          <li>Limpieza interna y externa</li>
-          <li>Optimización del sistema</li>
-          <li>Copias de seguridad</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="clientes">
-  <div class="container panel panel-photo">
-    <h2>Lo que dicen quienes ya han pasado por aquí</h2>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p class="review-text">"El servicio de Firztnet es excepcional. Arreglaron el sobrecalentamiento de mi portátil en muy poco tiempo y con un precio muy razonable."</p>
-        <div class="reviewer"><div class="avatar">JP</div><div class="reviewer-name">Juan Pérez</div></div>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p class="review-text">"Excelente atención y resultados. Mi ordenador funciona mejor que el día que lo compré. Los recomiendo sin dudarlo."</p>
-        <div class="reviewer"><div class="avatar">ML</div><div class="reviewer-name">María López</div></div>
-      </div>
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p class="review-text">"Rápidos, profesionales y con buen precio. Me rescataron todos los archivos del disco duro que creía perdidos. Increíble."</p>
-        <div class="reviewer"><div class="avatar">CR</div><div class="reviewer-name">Carlos Ramírez</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="galeria">
-  <div class="container panel panel-alt">
-    <div class="services-header">
-      <h2>Trabajos recientes</h2>
-      <p class="section-desc">Algunas de las últimas intervenciones en el taller.</p>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-item" onclick="openLightbox('images/gal1.webp','Instalación de disco duro')"><img src="images/gal1.webp" alt="Instalación de disco duro" loading="lazy"><div class="gallery-overlay"><span class="gallery-caption">Instalación de disco duro</span></div></div>
-      <div class="gallery-item" onclick="openLightbox('images/gal4.webp','Portátiles gaming')"><img src="images/gal4.webp" alt="Portátil gaming" loading="lazy"><div class="gallery-overlay"><span class="gallery-caption">Portátiles gaming</span></div></div>
-      <div class="gallery-item" onclick="openLightbox('images/gal5.webp','Mesa de trabajo técnica')"><img src="images/gal5.webp" alt="Mesa de trabajo" loading="lazy"><div class="gallery-overlay"><span class="gallery-caption">Mesa de trabajo técnica</span></div></div>
-      <div class="gallery-item" onclick="openLightbox('images/gal6.webp','Puestos con monitores')"><img src="images/gal6.webp" alt="Puestos de trabajo" loading="lazy"><div class="gallery-overlay"><span class="gallery-caption">Puestos con monitores</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="recomendados">
-  <div class="container panel">
-    <div class="services-header">
-      <h2>¿Tu equipo ya no da más de sí?</h2>
-      <p class="section-desc">Si la reparación no compensa, aquí tienes algunos portátiles recomendados para empezar de cero.</p>
-    </div>
-    <div class="tilt-grid">
-      <a href="#" class="tilt-card" data-tilt>
-        <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=800&q=80" alt="Portátil recomendado — gama ligera">
-        <div class="tilt-shine"></div>
-        <div class="tilt-label">Ligeros y de oficina</div>
+  <!-- ══ NAVBAR ══ -->
+  <header id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="logo">
+        <span class="logo-icon">⚡</span>
+        Firzt<em>net</em>
       </a>
-      <a href="#" class="tilt-card" data-tilt>
-        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80" alt="Portátil recomendado — gama alta">
-        <div class="tilt-shine"></div>
-        <div class="tilt-label">Rendimiento y creación</div>
-      </a>
-      <a href="#" class="tilt-card" data-tilt>
-        <img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=800&q=80" alt="Portátil recomendado — gaming">
-        <div class="tilt-shine"></div>
-        <div class="tilt-label">Gaming</div>
-      </a>
-    </div>
-    <div style="text-align:center; margin-top:34px;">
-      <a href="https://techcompara.es" target="_blank" rel="noopener" class="btn-primary" data-evento="boton_ver_recomendaciones">Ver todas las recomendaciones</a>
-    </div>
-  </div>
-</section>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#cotizador" class="nav-highlight">
+            <span class="nav-ping"></span>Cotizador
+          </a></li>
+          <li><a href="#galeria">Trabajos</a></li>
+          <li><a href="#opiniones">Opiniones</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacto" class="nav-cta">Pedir presupuesto</a></li>
+        </ul>
+      </nav>
+      <!-- Botón modo claro/oscuro -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+        <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+      </button>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">✕</button>
-  <img src="" alt="" id="lightboxImg">
-  <p class="lightbox-caption" id="lightboxCaption"></p>
-</div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-<section id="firztweb-promo">
-  <div class="container">
-    <div class="fw-promo-wrap">
-      <div class="fw-promo-text">
-        <div class="fw-promo-eyebrow">Un proyecto hermano</div>
-        <h2>¿Necesitas una web para tu negocio?</h2>
-        <p>Esta misma web, con su formulario conectado de verdad a nuestro sistema, la hizo <strong>Firztweb</strong> — diseño de páginas que no solo se ven bien, funcionan de verdad.</p>
-        <a href="https://firztnet.github.io/firztweb/" class="btn-primary" target="_blank" rel="noopener" data-evento="boton_ver_firztweb">Ver Firztweb →</a>
-      </div>
-      <div class="fw-promo-demo-wrap">
-        <div class="fw-promo-card" data-tilt>
-          <div class="fw-promo-shine"></div>
-          <div class="fw-promo-label">Firztweb</div>
-          <div class="fw-promo-sub">Mueve el ratón aquí</div>
+  <!-- ══ HERO ══ -->
+  <section id="hero">
+    <!-- Background layers -->
+    <div class="hero-bg" aria-hidden="true">
+      <div class="hero-dots"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <div class="container hero-layout">
+
+      <!-- Left: copy -->
+      <div class="hero-content">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          Taller abierto · Madrid · Respuesta &lt;2h
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="faq">
-  <div class="container faq-container panel">
-    <h2>Dudas antes de venir</h2>
-    <div class="services-photo faq-photo">
-      <img src="https://images.unsplash.com/photo-1591238372338-22d30c883a86?auto=format&fit=crop&w=1400&q=80" alt="Ordenador de sobremesa listo para diagnóstico" loading="lazy">
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">¿Cuánto tarda una reparación?<span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">Según la complejidad del caso, normalmente entre 24 y 48 horas. Para intervenciones más complejas te avisamos con antelación y acordamos el plazo.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">¿Ofrecéis garantía en las reparaciones?<span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">Sí, todas las reparaciones incluyen 90 días de garantía. Si el problema reaparece dentro de ese período, lo solucionamos sin coste adicional.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">¿Qué marcas y modelos reparáis?<span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">Trabajamos con todas las marcas: Apple, Dell, HP, Lenovo, ASUS, Acer, MSI, Toshiba, Sony y más. Tanto portátiles como sobremesa.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">¿El diagnóstico tiene coste?<span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">El diagnóstico inicial es gratuito. Solo pagas si decides continuar con la reparación, y siempre tras aceptar el presupuesto por escrito.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" aria-expanded="false">¿Hacéis recogida a domicilio?<span class="faq-icon" aria-hidden="true">+</span></button>
-        <div class="faq-a">Podemos valorarlo según la localización. Consúltanos por WhatsApp o teléfono y lo gestionamos sin problema.</div>
-      </div>
-    </div>
-  </div>
-</section>
+        <h1>Reparamos lo que<br><span class="gradient-text">otros dan por perdido</span></h1>
 
-<section id="contacto">
-  <div class="container">
-    <div class="contact-wrap">
-      <div class="contact-info-block">
-        <h2>¿Problemas con tu equipo?</h2>
-        <p>Escríbenos o llámanos. Te respondemos en menos de 2 horas en horario de atención (Lun–Vie 9–19h, Sáb 9–14h).</p>
-        <div class="contact-detail"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><div>Calle Biosca 1, Madrid</div></div>
-        <div class="contact-detail"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8 9.9a16 16 0 006 6l1.4-1.4a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.8 2.2z"/></svg><div><a href="tel:+34913252525">913 25 25 25</a></div></div>
-        <div class="contact-detail"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg><div><a href="mailto:firztnet@gmail.com">firztnet@gmail.com</a></div></div>
-        <div style="margin-top:28px;">
-          <a href="https://wa.me/34913252525" class="btn-wa" target="_blank" rel="noopener" data-evento="boton_whatsapp_contacto" style="background:transparent; border-color:#3A3E4A; color:#fff;">
-            <svg viewBox="0 0 24 24" width="18" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.335-1.611A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.213-3.76.956.996-3.671-.234-.377A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-            Escribir por WhatsApp
+        <p class="hero-lead">
+          Más de <strong>15 años</strong> devolviendo a la vida portátiles, PCs Gaming y Mac en Madrid.
+          Diagnóstico gratuito, presupuesto por escrito y <strong class="cyan">90 días de garantía</strong>.
+        </p>
+
+        <div class="hero-btns">
+          <a href="#cotizador" class="btn btn-primary">
+            <span>⚡ Calcular precio de reparación</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="https://wa.me/34913252525" class="btn btn-wa" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.526 5.526 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.335-1.611A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.213-3.76.956.996-3.671-.234-.377A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+            WhatsApp directo
           </a>
         </div>
-      </div>
-      <div class="contact-form" id="contactForm">
-        <div class="form-row">
-          <div class="form-group"><label for="nombre">Nombre</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required></div>
-          <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="tu@email.com" required></div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <strong>15+</strong><span>Años de experiencia</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="stat">
+            <strong>2.5k+</strong><span>Equipos reparados</span>
+          </div>
+          <div class="stat-sep"></div>
+          <div class="stat">
+            <strong class="cyan">90 días</strong><span>Garantía total</span>
+          </div>
         </div>
-        <div class="form-group"><label for="telefono">Teléfono (opcional)</label><input type="tel" id="telefono" name="telefono" placeholder="6xx xxx xxx"></div>
-        <div class="form-group"><label for="mensaje">Cuéntanos el problema</label><textarea id="mensaje" name="mensaje" placeholder="Describe qué le pasa a tu equipo…" required></textarea></div>
-        <button type="button" class="btn-submit" id="submitBtn" data-evento="boton_enviar_formulario" onclick="handleSubmit()">Enviar mensaje</button>
-        <div class="form-success" id="formSuccess">Mensaje enviado. Te contactamos en breve.</div>
+      </div>
+
+      <!-- Right: image card -->
+      <div class="hero-visual">
+        <div class="hero-frame">
+          <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=1200&q=85&fm=jpg" alt="Técnico reparando hardware en Firztnet" loading="eager">
+          <div class="hero-frame-glow"></div>
+        </div>
+        <div class="hero-badge badge-left fade-up">
+          <span>🔍</span> Diagnóstico gratis
+        </div>
+        <div class="hero-badge badge-right fade-up">
+          <span>🛡️</span> 90 días garantía
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ COTIZADOR INTERACTIVO ══ -->
+  <section id="cotizador">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow-b">
+          <div class="eyebrow-b-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="eyebrow-b-text">
+            <span class="eyebrow-b-label">Herramienta</span>
+            <span class="eyebrow-b-title">Cotizador Express</span>
+          </div>
+        </div>
+        <h2 style="font-size: clamp(1.6rem, 3.2vw, 2.6rem);">¿Cuánto cuesta reparar tu equipo?</h2>
+        <p class="section-sub">Elige dispositivo y avería — precio al instante, cita por WhatsApp.</p>
+      </div>
+
+      <div class="calc-card fade-up">
+        <div class="calc-selects">
+          <div class="calc-field">
+            <label for="calcDevice">1. Tipo de dispositivo</label>
+            <select id="calcDevice">
+              <option value="portatil_std">Portátil estándar / Oficina</option>
+              <option value="portatil_gaming">Portátil Gaming / Alto rendimiento</option>
+              <option value="pc_torre">PC Sobremesa / Torre</option>
+              <option value="mac">Apple Mac / MacBook</option>
+              <option value="servidor">Servidor / Red empresa</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="calcIssue">2. Problema principal</label>
+            <select id="calcIssue">
+              <option value="lento">Equipo muy lento / Virus / Malware</option>
+              <option value="no_enciende">No enciende / Fallo de placa o fuente</option>
+              <option value="calor">Sobrecalentamiento / Ruido extremo</option>
+              <option value="pantalla">Pantalla rota / Sin señal de video</option>
+              <option value="disco">Ampliación SSD / Memoria RAM</option>
+              <option value="datos">Recuperación de datos borrados/dañados</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="calcUrgency">3. Tiempo deseado</label>
+            <select id="calcUrgency">
+              <option value="estandar">Estándar (24h – 48h)</option>
+              <option value="express">Express 24h (+20€)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <div class="calc-result-info">
+            <span class="calc-label">Estimación calculada</span>
+            <div class="calc-price-wrap">
+              <span id="calcPrice" class="calc-price">35€ – 65€</span>
+              <span class="calc-tax">+ IVA aproximado</span>
+            </div>
+            <p id="calcTime" class="calc-time">⏱️ Plazo estimado: 24 – 48h · Con 90 días de garantía</p>
+          </div>
+          <button id="calcWpBtn" class="btn btn-wa-solid">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.526 5.526 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.335-1.611A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.213-3.76.956.996-3.671-.234-.377A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+            Pedir cita con este presupuesto
+          </button>
+        </div>
       </div>
     </div>
+  </section>
+
+  <!-- ══ SERVICIOS ══ -->
+  <section id="servicios">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow-b">
+          <div class="eyebrow-b-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="eyebrow-b-text">
+            <span class="eyebrow-b-label">Sección</span>
+            <span class="eyebrow-b-title">Servicios</span>
+          </div>
+        </div>
+        <h2>Soluciones técnicas<br>para cualquier problema</h2>
+        <p class="section-sub">Atendemos particulares, gamers y empresas de Madrid con repuestos de primera calidad y taller propio.</p>
+      </div>
+
+      <div class="cards-grid">
+        <div class="card-wrap fade-up">
+          <article class="card">
+            <div class="card-img-wrap">
+              <img src="images/hardware.jpg" alt="Reparación hardware portátil" loading="lazy">
+              <div class="card-img-overlay">
+                <div class="card-icon-wrap" style="--icon-color: rgba(0,240,255,0.25); --icon-border: rgba(0,240,255,0.5)">
+                  <span>🔧</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>Hardware &amp; Micro-soldadura</h3>
+              <p class="card-desc">Diagnóstico profundo de componentes, cambio de pantallas, conectores de carga, reballing y reparación de placas base.</p>
+              <ul>
+                <li>Cambio de SSD NVMe y ampliación de RAM</li>
+                <li>Limpieza térmica y pasta de metal líquido</li>
+                <li>Reparación de GPU y cortocircuitos</li>
+              </ul>
+              <a href="#contacto" class="card-link">Consultar reparación hardware →</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="card-wrap fade-up" style="--delay:.1s">
+          <article class="card">
+            <div class="card-img-wrap">
+              <img src="images/software.jpg" alt="Desinfección y software" loading="lazy">
+              <div class="card-img-overlay">
+                <div class="card-icon-wrap" style="--icon-color: rgba(139,92,246,0.25); --icon-border: rgba(139,92,246,0.5)">
+                  <span>🛡️</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>Software &amp; Desinfección</h3>
+              <p class="card-desc">Eliminación garantizada de troyanos, ransomware y spyware. Reinstalación optimizada de Windows y macOS.</p>
+              <ul>
+                <li>Limpieza profunda sin perder datos</li>
+                <li>Optimización de arranque y rendimiento</li>
+                <li>Licencias oficiales y configuración segura</li>
+              </ul>
+              <a href="#contacto" class="card-link">Limpiar o recuperar mi PC →</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="card-wrap fade-up" style="--delay:.2s">
+          <article class="card">
+            <div class="card-img-wrap">
+              <img src="images/redes.jpg" alt="Redes y mantenimiento PYME" loading="lazy">
+              <div class="card-img-overlay">
+                <div class="card-icon-wrap" style="--icon-color: rgba(16,185,129,0.25); --icon-border: rgba(16,185,129,0.5)">
+                  <span>⚙️</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3>Mantenimiento PYME &amp; Redes</h3>
+              <p class="card-desc">Soporte técnico integral para empresas en Madrid. Redes locales, copias de seguridad y asistencia remota.</p>
+              <ul>
+                <li>Auditoría de seguridad y backups NAS</li>
+                <li>Mantenimiento preventivo periódico</li>
+                <li>Asistencia remota prioritaria</li>
+              </ul>
+              <a href="#contacto" class="card-link">Planes para empresa →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ GALERÍA con filtros ══ -->
+  <section id="galeria">
+    <div class="container">
+      <div class="gallery-header">
+        <div class="section-head">
+          <div class="eyebrow-b">
+            <div class="eyebrow-b-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <div class="eyebrow-b-text">
+              <span class="eyebrow-b-label">Galería</span>
+              <span class="eyebrow-b-title">Trabajos recientes</span>
+            </div>
+          </div>
+          <h2>Últimas intervenciones<br>en el taller</h2>
+        </div>
+        <div class="gallery-filters" id="galleryFilters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="gaming">Gaming</button>
+          <button class="filter-btn" data-filter="portatil">Portátiles</button>
+          <button class="filter-btn" data-filter="taller">Mantenimiento</button>
+        </div>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+
+        <!-- 1 — Setup iMac con iluminación RGB -->
+        <div class="gallery-item gaming fade-up"
+             data-src="https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=1200&q=85"
+             data-caption="Montaje y personalización de escritorio gaming con iluminación RGB">
+          <img src="https://images.unsplash.com/photo-1547082299-de196ea013d6?auto=format&fit=crop&w=600&q=85" alt="Setup gaming RGB" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Gaming</span>
+            <strong>Setup Gaming RGB Completo</strong>
+          </div>
+        </div>
+
+        <!-- 2 — Placa base con chip Ryzen -->
+        <div class="gallery-item taller fade-up" style="--delay:.06s"
+             data-src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85"
+             data-caption="Diagnóstico y limpieza de placa base con procesador AMD Ryzen">
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=85" alt="Placa base AMD Ryzen" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Mantenimiento</span>
+            <strong>Diagnóstico Placa Base Ryzen</strong>
+          </div>
+        </div>
+
+        <!-- 3 — Portátil abierto reparación -->
+        <div class="gallery-item portatil fade-up" style="--delay:.12s"
+             data-src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=1200&q=85"
+             data-caption="Reparación y limpieza interna de portátil Dell">
+          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=600&q=85" alt="Portátil Dell abierto" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Portátil</span>
+            <strong>Reparación Portátil Dell</strong>
+          </div>
+        </div>
+
+        <!-- 4 — Circuito electrónico colores -->
+        <div class="gallery-item taller fade-up" style="--delay:.18s"
+             data-src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=85"
+             data-caption="Análisis de circuito electrónico con lupa y soldador">
+          <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=600&q=85" alt="Circuito electrónico colorido" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Mantenimiento</span>
+            <strong>Micro-soldadura Circuito</strong>
+          </div>
+        </div>
+
+        <!-- 5 — Switch rack de red -->
+        <div class="gallery-item taller fade-up" style="--delay:.24s"
+             data-src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=85"
+             data-caption="Instalación de red estructurada con switch rack en empresa">
+          <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=85" alt="Switch rack red empresarial" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Mantenimiento</span>
+            <strong>Red Estructurada PYME</strong>
+          </div>
+        </div>
+
+        <!-- 6 — GPU tarjeta gráfica gaming -->
+        <div class="gallery-item gaming fade-up" style="--delay:.30s"
+             data-src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=1200&q=85"
+             data-caption="Sustitución y limpieza térmica de tarjeta gráfica RTX">
+          <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=600&q=85" alt="Tarjeta gráfica RTX gaming" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-tag">Gaming</span>
+            <strong>Cambio Tarjeta Gráfica RTX</strong>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada" hidden>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <img src="" alt="" id="lightboxImg">
+    <p id="lightboxCaption"></p>
   </div>
-</section>
 
-<footer>
-  <div class="container footer-inner">
-    <a href="#hero" class="logo">Firzt<span>net</span></a>
-    <p>© 2026 Firztnet · Calle Biosca 1, Madrid</p>
-    <div class="footer-links"><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a></div>
-  </div>
-</footer>
+  <!-- ══ OPINIONES ══ -->
+  <section id="opiniones">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow-b">
+          <div class="eyebrow-b-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="eyebrow-b-text">
+            <span class="eyebrow-b-label">Clientes</span>
+            <span class="eyebrow-b-title">Reseñas verificadas</span>
+          </div>
+        </div>
+        <h2>Lo que dicen quienes<br>ya han pasado por aquí</h2>
+        <div class="stars-total">
+          <span class="stars-row">★★★★★</span>
+          <span class="stars-label">4.9 / 5 en Google Reviews (180+ valoraciones)</span>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <article class="review fade-up">
+          <div class="stars" aria-label="5 estrellas">★★★★★</div>
+          <blockquote>"Mi portátil gaming sufría apagones por temperatura extrema. En Firztnet hicieron una limpieza profunda y aplicaron pasta térmica de alta gama. Funciona más fresco que nuevo."</blockquote>
+          <div class="reviewer">
+            <div class="avatar" style="--av: linear-gradient(135deg,#00f0ff,#3b82f6)">JP</div>
+            <div>
+              <strong>Juan Pérez</strong>
+              <span>Cliente Madrid</span>
+            </div>
+          </div>
+        </article>
+        <article class="review fade-up" style="--delay:.1s">
+          <div class="stars" aria-label="5 estrellas">★★★★★</div>
+          <blockquote>"Creía que había perdido todos los datos de mi empresa. Lograron recuperar el 100% en menos de 48 horas. Un trato cercano y súper profesional."</blockquote>
+          <div class="reviewer">
+            <div class="avatar" style="--av: linear-gradient(135deg,#8b5cf6,#ec4899)">ML</div>
+            <div>
+              <strong>María López</strong>
+              <span>Autónoma, Madrid Centro</span>
+            </div>
+          </div>
+        </article>
+        <article class="review fade-up" style="--delay:.2s">
+          <div class="stars" aria-label="5 estrellas">★★★★★</div>
+          <blockquote>"Honestidad total. Me dijeron exactamente qué valía la pena arreglar. Cambiaron la pantalla de mi MacBook por la mitad del precio del servicio oficial."</blockquote>
+          <div class="reviewer">
+            <div class="avatar" style="--av: linear-gradient(135deg,#10b981,#06b6d4)">CR</div>
+            <div>
+              <strong>Carlos Ramírez</strong>
+              <span>Cliente Madrid</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<a href="https://wa.me/34913252525" class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp" data-evento="boton_whatsapp_flotante">
-  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.335-1.611A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.213-3.76.956.996-3.671-.234-.377A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
-</a>
+  <!-- ══ PORTÁTILES RECOMENDADOS ══ -->
+  <section id="portatiles">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow-b">
+          <div class="eyebrow-b-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="eyebrow-b-text">
+            <span class="eyebrow-b-label">Consejo</span>
+            <span class="eyebrow-b-title">Recomendación experta</span>
+          </div>
+        </div>
+        <h2>¿Tu equipo ya no merece<br>la pena repararlo?</h2>
+        <p class="section-sub">Si el presupuesto no te compensa, aquí tienes las mejores selecciones actuales en <strong class="cyan">Techcompara.es</strong>.</p>
+      </div>
 
-<script>
-// Menú móvil
-document.getElementById('navToggle').addEventListener('click', function(){
-  document.getElementById('navLinks').classList.toggle('open');
-});
-document.querySelectorAll('.nav-link, .nav-cta').forEach(function(el){
-  el.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
-});
+      <div class="laptop-grid">
+        <a href="https://techcompara.es" target="_blank" rel="noopener" class="laptop-card fade-up">
+          <div class="laptop-thumb">
+            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=700&q=75" alt="Portátil de oficina" loading="lazy">
+          </div>
+          <div class="laptop-body">
+            <span class="laptop-tag cyan-tag">Oficina &amp; Estudio</span>
+            <strong>Ligeros y batería duradera</strong>
+            <p>Ideales para teletrabajo, universidad y ofimática con máximo silencio.</p>
+            <span class="laptop-arrow">Ver recomendaciones →</span>
+          </div>
+        </a>
 
-// FAQ acordeón
-document.querySelectorAll('.faq-q').forEach(function(btn){
-  btn.addEventListener('click', function(){
-    var item = btn.closest('.faq-item');
-    var abierto = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); i.querySelector('.faq-q').setAttribute('aria-expanded','false'); });
-    if(!abierto){ item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
-  });
-});
+        <a href="https://techcompara.es" target="_blank" rel="noopener" class="laptop-card fade-up" style="--delay:.1s">
+          <div class="laptop-thumb">
+            <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?auto=format&fit=crop&w=700&q=75" alt="Portátil creación" loading="lazy">
+          </div>
+          <div class="laptop-body">
+            <span class="laptop-tag purple-tag">Diseño &amp; Edición</span>
+            <strong>Pantallas calibradas y potencia</strong>
+            <p>Procesadores multihilo y pantallas OLED 100% sRGB para vídeo 4K.</p>
+            <span class="laptop-arrow">Ver modelos creadores →</span>
+          </div>
+        </a>
 
-// Entrada mágica: las tarjetas de portátiles recomendados vuelan a su sitio cuando el visitante llega a esa parte de la página
-var seccionRecomendados = document.getElementById('recomendados');
-if(seccionRecomendados && 'IntersectionObserver' in window){
-  var observador = new IntersectionObserver(function(entradas){
-    entradas.forEach(function(entrada){
-      if(entrada.isIntersecting){
-        seccionRecomendados.classList.add('in-view');
-        observador.unobserve(seccionRecomendados); // solo una vez, no cada vez que se cruza el borde
+        <a href="https://techcompara.es" target="_blank" rel="noopener" class="laptop-card fade-up" style="--delay:.2s">
+          <div class="laptop-thumb">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=75" alt="Portátil gaming" loading="lazy">
+          </div>
+          <div class="laptop-body">
+            <span class="laptop-tag green-tag">Gaming &amp; 3D</span>
+            <strong>Máxima frecuencia y gráficos RTX</strong>
+            <p>Gráficas NVIDIA RTX y altas tasas de refresco para jugar al máximo.</p>
+            <span class="laptop-arrow">Ver selección gaming →</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="laptop-cta">
+        <a href="https://techcompara.es" target="_blank" rel="noopener" class="btn btn-primary" data-evento="boton_ver_recomendaciones">
+          <span>Ver todas las recomendaciones</span>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FIRZTWEB ══ -->
+  <section id="firztweb-banner">
+    <div class="fw-bg" aria-hidden="true">
+      <div class="fw-orb fw-orb-1"></div>
+      <div class="fw-orb fw-orb-2"></div>
+      <div class="fw-grid"></div>
+    </div>
+
+    <div class="container fw-layout">
+
+      <!-- Columna izquierda: texto -->
+      <div class="fw-hero fade-up">
+
+        <!-- Badge pill -->
+        <div class="fw-pill">
+          <span class="fw-pill-new">NUEVO</span>
+          Firztweb · Estudio de desarrollo web
+        </div>
+
+        <!-- Titular -->
+        <h2 class="fw-h">Webs que posicionan.<br><em>Clientes que llaman.</em></h2>
+
+        <!-- Subtítulo -->
+        <p class="fw-sub">Diseño y desarrollo profesional sin plantillas. Tu web cargará en menos de 1&nbsp;segundo y aparecerá en Google antes que la competencia.</p>
+
+        <!-- Botones -->
+        <div class="fw-btns">
+          <a href="https://firztnet.github.io/firztweb/" target="_blank" rel="noopener" class="fw-btn-p">Ver proyectos →</a>
+          <a href="#contacto" class="fw-btn-s">Consulta gratuita</a>
+        </div>
+
+        <!-- Métricas en fila -->
+        <div class="fw-stats-row">
+          <div class="fw-stat-box">
+            <span class="fw-stat-n cyan">+340%</span>
+            <span class="fw-stat-l">Visitas orgánicas</span>
+          </div>
+          <div class="fw-stat-box">
+            <span class="fw-stat-n">98</span>
+            <span class="fw-stat-l">PageSpeed Score</span>
+          </div>
+          <div class="fw-stat-box">
+            <span class="fw-stat-n purple">&lt;1s</span>
+            <span class="fw-stat-l">Tiempo de carga</span>
+          </div>
+          <div class="fw-stat-box">
+            <span class="fw-stat-n">7–14</span>
+            <span class="fw-stat-l">Días de entrega</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Columna derecha: cubo 3D -->
+      <div class="fw-cube-wrap fade-up">
+        <div class="fw-cube-scene">
+          <div class="fw-cube" id="fwCube">
+            <!-- Cara frontal — Diseño -->
+            <div class="fw-cube-face fw-face-front">
+              <div class="fw-face-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+              </div>
+              <div class="fw-face-title">Diseño</div>
+              <div class="fw-face-sub">Webs únicas<br>sin plantillas</div>
+            </div>
+            <!-- Cara derecha — Velocidad -->
+            <div class="fw-cube-face fw-face-right">
+              <div class="fw-face-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+              </div>
+              <div class="fw-face-title">Velocidad</div>
+              <div class="fw-face-sub">Carga en<br>menos de 1s</div>
+            </div>
+            <!-- Cara izquierda — Resultados -->
+            <div class="fw-cube-face fw-face-left">
+              <div class="fw-face-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+              </div>
+              <div class="fw-face-title">Resultados</div>
+              <div class="fw-face-sub">+clientes<br>+ventas</div>
+            </div>
+          </div>
+        </div>
+        <p class="fw-cube-hint">Pasa el ratón para acelerar</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow-b">
+          <div class="eyebrow-b-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <div class="eyebrow-b-text">
+            <span class="eyebrow-b-label">FAQ</span>
+            <span class="eyebrow-b-title">Respuestas rápidas</span>
+          </div>
+        </div>
+        <h2>Preguntas frecuentes</h2>
+      </div>
+
+      <!-- Buscador -->
+      <div class="faq-search-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" id="faqSearch" placeholder="Buscar duda (ej: garantía, tiempo, marcas)…">
+      </div>
+
+      <div class="faq-list" id="faqList">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>¿Cuánto suele tardar una reparación?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">La mayoría de intervenciones (limpiezas térmicas, cambio de SSD, desinfección de virus) se entregan en 24h – 48h. Para micro-soldadura o recuperación avanzada de datos te informamos de inmediato con un plazo concreto.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>¿El diagnóstico tiene algún coste?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">No. El diagnóstico inicial en taller es completamente gratuito. Te entregamos un presupuesto cerrado antes de tocar absolutamente nada. Solo pagas si aceptas la reparación.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>¿Qué garantía ofrecen en las reparaciones?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">90 días de garantía oficial por escrito en toda la mano de obra y repuestos sustituidos. Si surge el mismo fallo durante ese periodo, lo solucionamos sin coste adicional.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>¿Reparáis Apple Mac y portátiles Gaming?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Sí. Somos especialistas en hardware de alta potencia (Asus ROG, MSI, Lenovo Legion, HP Omen) y toda la gama Mac (MacBook Pro, Air, iMac) con repuestos compatibles y originales.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            <span>¿Hacéis recogida a domicilio?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Podemos valorarlo según la localización. Consúltanos por WhatsApp o teléfono y lo gestionamos sin problema.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACTO ══ -->
+  <section id="contacto">
+    <div class="container contact-layout">
+
+      <div class="contact-info">
+        <div class="eyebrow-b">
+          <div class="eyebrow-b-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.92 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div class="eyebrow-b-text">
+            <span class="eyebrow-b-label">Sección</span>
+            <span class="eyebrow-b-title">Contacto</span>
+          </div>
+        </div>
+        <h2>¿Problemas con<br>tu equipo?</h2>
+        <p class="section-sub">Escríbenos o llámanos. Respondemos en menos de 2 horas (Lun–Vie 9–19h, Sáb 9–14h).</p>
+
+        <ul class="contact-details">
+          <li>
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <span>Calle Biosca 1, Madrid</span>
+          </li>
+          <li>
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <a href="tel:+34913252525">913 25 25 25</a>
+          </li>
+          <li>
+            <div class="contact-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            </div>
+            <a href="mailto:contacto@firztnet.es">contacto@firztnet.es</a>
+          </li>
+        </ul>
+
+        <!-- Botón WhatsApp — pertenece a "¿Problemas con tu equipo?" -->
+        <div class="contact-form-btn-wrap">
+          <a href="https://wa.me/34913252525?text=Hola%2C%20necesito%20ayuda%20con%20mi%20equipo" target="_blank" rel="noopener" class="contact-action-btn contact-action-btn--green">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.122 1.535 5.854L.057 23.714a.75.75 0 00.918.943l5.998-1.566A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.715 9.715 0 01-4.96-1.357l-.356-.213-3.695.965.984-3.595-.232-.371A9.713 9.713 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+            <span>Iniciar chat de WhatsApp</span>
+          </a>
+        </div>
+
+      </div>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="eyebrow-b">
+          <div class="eyebrow-b-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="eyebrow-b-text">
+            <span class="eyebrow-b-label">Formulario</span>
+            <span class="eyebrow-b-title">Solicitar diagnóstico</span>
+          </div>
+        </div>
+        <h3>Solicitar diagnóstico o cita</h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre <span class="req">*</span></label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="telefono">Teléfono <span class="optional">(opcional)</span></label>
+            <input type="tel" id="telefono" name="telefono" placeholder="6xx xxx xxx" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="equipo">Tipo de equipo</label>
+            <select id="equipo" name="equipo">
+              <option>Portátil / Laptop</option>
+              <option>PC Sobremesa / Gaming</option>
+              <option>Apple Mac</option>
+              <option>Servidor / Empresa</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">Cuéntanos el problema <span class="req">*</span></label>
+          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Describe qué le pasa a tu equipo (ej: no da imagen, hace ruido, va lento)…" required></textarea>
+        </div>
+
+        <!-- Botón Enviar — pertenece a "Solicitar diagnóstico" -->
+        <div class="contact-form-btn-wrap">
+          <button type="submit" class="contact-action-btn contact-action-btn--cyan" id="submitBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <span>Enviar mensaje y recibir diagnóstico</span>
+          </button>
+        </div>
+
+        <p class="form-ok" id="formOk" role="status" aria-live="polite" hidden>✓ Solicitud recibida. Un técnico te contactará en breve.</p>
+        <p class="form-err" id="formErr" role="alert" aria-live="assertive" hidden></p>
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="container footer-inner">
+      <a href="#hero" class="logo">
+        <span class="logo-icon">⚡</span>
+        Firzt<em>net</em>
+      </a>
+      <p>© 2026 Firztnet · Calle Biosca 1, Madrid</p>
+      <nav class="footer-links" aria-label="Pie de página">
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+        <a href="https://techcompara.es" target="_blank" rel="noopener">Techcompara</a>
+        <a href="https://firztnet.github.io/firztweb/" target="_blank" rel="noopener">Firztweb</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- WhatsApp FAB -->
+  <a href="https://wa.me/34913252525" class="wa-fab" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.526 5.526 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.335-1.611A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.213-3.76.956.996-3.671-.234-.377A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
+  </a>
+
+  <script src="main.js"></script>
+
+  <!-- Toggle modo claro/oscuro -->
+  <script>
+    (function() {
+      const btn = document.getElementById('themeToggle');
+      const root = document.documentElement;
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light') root.setAttribute('data-theme', 'light');
+
+      btn.addEventListener('click', () => {
+        const isLight = root.getAttribute('data-theme') === 'light';
+        if (isLight) {
+          root.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          root.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    })();
+  </script>
+
+  <!-- Cubo 3D Firztweb -->
+  <script>
+    (function() {
+      const scene = document.querySelector('.fw-cube-scene');
+      const cube  = document.getElementById('fwCube');
+      if (!scene || !cube) return;
+
+      let angle = 0;
+      let speed = 0.4;          // grados por frame en reposo
+      const hoverSpeed = 2.4;   // acelerado al hover
+      let isHover = false;
+      let raf;
+
+      function tick() {
+        angle = (angle + (isHover ? hoverSpeed : speed)) % 360;
+        cube.style.transform = `rotateX(-15deg) rotateY(${angle}deg)`;
+        raf = requestAnimationFrame(tick);
       }
-    });
-  }, { threshold: 0.3 });
-  observador.observe(seccionRecomendados);
-} else if(seccionRecomendados){
-  seccionRecomendados.classList.add('in-view'); // navegadores muy antiguos: se muestra directamente, sin animación
-}
 
-// Efecto de inclinación 3D (más pronunciado) + brillo que sigue al cursor, en las tarjetas de portátiles recomendados
-var prefiereMenosMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(!prefiereMenosMovimiento){
-  document.querySelectorAll('[data-tilt]').forEach(function(card){
-    card.addEventListener('mousemove', function(e){
-      var rect = card.getBoundingClientRect();
-      var x = (e.clientX - rect.left) / rect.width - 0.5;
-      var y = (e.clientY - rect.top) / rect.height - 0.5;
-      var maxGrados = 16;
-      card.style.transform = 'perspective(900px) rotateY(' + (x * maxGrados) + 'deg) rotateX(' + (-y * maxGrados) + 'deg) scale(1.06)';
-      card.style.setProperty('--mx', ((x + 0.5) * 100) + '%');
-      card.style.setProperty('--my', ((y + 0.5) * 100) + '%');
-    });
-    card.addEventListener('mouseleave', function(){
-      card.style.transform = 'perspective(900px) rotateY(0deg) rotateX(0deg) scale(1)';
-    });
-  });
-}
+      scene.addEventListener('mouseenter', () => { isHover = true; });
+      scene.addEventListener('mouseleave', () => { isHover = false; });
 
-// Lightbox de galería
-function openLightbox(src, caption){
-  document.getElementById('lightboxImg').src = src;
-  document.getElementById('lightboxImg').alt = caption;
-  document.getElementById('lightboxCaption').textContent = caption;
-  document.getElementById('lightbox').classList.add('open');
-}
-function closeLightbox(){ document.getElementById('lightbox').classList.remove('open'); }
-
-// Formulario de contacto → conectado al panel de gestión de Firztnet.
-// Cada envío llega directamente a "Solicitudes", marcado como "Nuevo contacto".
-async function handleSubmit(){
-  var nombre = document.getElementById('nombre').value.trim();
-  var email = document.getElementById('email').value.trim();
-  var telefono = document.getElementById('telefono').value.trim();
-  var mensaje = document.getElementById('mensaje').value.trim();
-  var boton = document.getElementById('submitBtn');
-  var exito = document.getElementById('formSuccess');
-
-  if(!nombre || !mensaje){ alert('Por favor, completa al menos tu nombre y cuéntanos el problema.'); return; }
-  if(!telefono && !email){ alert('Necesitamos al menos un teléfono o un email para poder contactarte.'); return; }
-
-  boton.disabled = true;
-  boton.textContent = 'Enviando...';
-
-  try{
-    var res = await fetch('https://firztnet-backend-production.up.railway.app/api/seguimiento/solicitar-presupuesto', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        nombre: nombre,
-        telefono: telefono || 'Sin teléfono (contactar por email)',
-        email: email,
-        mensaje: mensaje,
-        negocio: 'firztnet'
-      })
-    });
-    var datos = await res.json();
-    if(!res.ok) throw new Error(datos.error || 'No se pudo enviar');
-
-    exito.style.display = 'block';
-    document.getElementById('nombre').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('telefono').value = '';
-    document.getElementById('mensaje').value = '';
-    boton.textContent = 'Enviar mensaje';
-  }catch(err){
-    alert('No se pudo enviar el mensaje. Prueba de nuevo o escríbenos por WhatsApp.');
-    boton.textContent = 'Enviar mensaje';
-  }finally{
-    boton.disabled = false;
-  }
-}
-
-// Contador de visitas propio (sin cookies, sin datos personales — solo cuenta, no identifica)
-var API_ESTADISTICAS = 'https://firztnet-backend-production.up.railway.app/api/estadisticas';
-var SITIO_ACTUAL = 'firztnet';
-
-fetch(API_ESTADISTICAS + '/visita', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    sitio: SITIO_ACTUAL,
-    ruta: window.location.pathname + window.location.hash,
-    referido: document.referrer || 'directo',
-    dispositivo: window.innerWidth <= 768 ? 'movil' : 'escritorio',
-  }),
-}).catch(function(){ /* si falla, no pasa nada — nunca debe romper la navegación del visitante */ });
-
-function registrarEvento(tipo, etiqueta){
-  fetch(API_ESTADISTICAS + '/evento', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ sitio: SITIO_ACTUAL, tipo: tipo, etiqueta: etiqueta }),
-  }).catch(function(){ /* igual que arriba: si falla, no debe notarse en la navegación */ });
-}
-
-// Clics en los botones importantes — añade data-evento="lo-que-sea" a cualquier botón que quieras seguir
-document.querySelectorAll('[data-evento]').forEach(function(el){
-  el.addEventListener('click', function(){
-    registrarEvento('clic', el.getAttribute('data-evento'));
-  });
-});
-
-// Qué secciones ve la gente al hacer scroll (una vez por sección, por visita)
-if('IntersectionObserver' in window){
-  var observadorSecciones = new IntersectionObserver(function(entradas){
-    entradas.forEach(function(entrada){
-      if(entrada.isIntersecting){
-        registrarEvento('seccion_vista', 'seccion_' + entrada.target.id);
-        observadorSecciones.unobserve(entrada.target);
-      }
-    });
-  }, { threshold: 0.4 });
-  document.querySelectorAll('section[id]').forEach(function(seccion){
-    observadorSecciones.observe(seccion);
-  });
-}
-</script>
+      tick();
+    })();
+  </script>
 </body>
 </html>

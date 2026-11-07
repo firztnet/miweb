@@ -54,12 +54,12 @@
 
   // Price matrix — base min/max per issue type
   const priceMatrix = {
-    lento:       { base: 35,  max: 65,  label: 'Optimización y eliminación de malware' },
-    no_enciende: { base: 50,  max: 95,  label: 'Diagnóstico de placa base / fuente de alimentación' },
-    calor:       { base: 30,  max: 55,  label: 'Limpieza térmica y sustitución de pasta' },
-    pantalla:    { base: 65,  max: 130, label: 'Sustitución de pantalla / GPU' },
-    disco:       { base: 45,  max: 85,  label: 'Ampliación SSD NVMe o RAM' },
-    datos:       { base: 60,  max: 150, label: 'Recuperación de datos' },
+    lento:       { base: 45,  max: 75,  label: 'Optimización y eliminación de malware' },
+    no_enciende: { base: 60,  max: 105, label: 'Diagnóstico de placa base / fuente de alimentación' },
+    calor:       { base: 40,  max: 65,  label: 'Limpieza térmica y sustitución de pasta' },
+    pantalla:    { base: 75,  max: 140, label: 'Sustitución de pantalla / GPU' },
+    disco:       { base: 55,  max: 95,  label: 'Ampliación SSD NVMe o RAM' },
+    datos:       { base: 70,  max: 160, label: 'Recuperación de datos' },
   };
 
   // Device multipliers

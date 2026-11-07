@@ -144,10 +144,10 @@
       </div>
 
       <div class="calc-card fade-up">
-        <div class="calc-selects">
+        <div class="calc-selects" style="display:flex;flex-direction:column;gap:.75rem;min-width:220px;">
           <div class="calc-field">
             <label for="calcDevice">1. Tipo de dispositivo</label>
-            <select id="calcDevice">
+            <select id="calcDevice" style="width:100%;min-width:200px;">
               <option value="portatil_std">Portátil estándar / Oficina</option>
               <option value="portatil_gaming">Portátil Gaming / Alto rendimiento</option>
               <option value="pc_torre">PC Sobremesa / Torre</option>
@@ -157,7 +157,7 @@
           </div>
           <div class="calc-field">
             <label for="calcIssue">2. Problema principal</label>
-            <select id="calcIssue">
+            <select id="calcIssue" style="width:100%;min-width:200px;">
               <option value="lento">Equipo muy lento / Virus / Malware</option>
               <option value="no_enciende">No enciende / Fallo de placa o fuente</option>
               <option value="calor">Sobrecalentamiento / Ruido extremo</option>
@@ -168,7 +168,7 @@
           </div>
           <div class="calc-field">
             <label for="calcUrgency">3. Tiempo deseado</label>
-            <select id="calcUrgency">
+            <select id="calcUrgency" style="width:100%;min-width:200px;">
               <option value="estandar">Estándar (24h – 48h)</option>
               <option value="express">Express 24h (+20€)</option>
             </select>
@@ -183,6 +183,7 @@
               <span class="calc-tax">+ IVA aproximado</span>
             </div>
             <p id="calcTime" class="calc-time">⏱️ Plazo estimado: 24 – 48h · Con 90 días de garantía</p>
+            <p class="calc-note" style="font-size:.75rem;color:var(--fg-muted,#8a96b0);margin-top:.4rem;line-height:1.5;max-width:260px;">Incluye diagnóstico y mano de obra. Repuestos y piezas se presupuestan por separado antes de cualquier intervención.</p>
           </div>
           <button id="calcWpBtn" class="btn btn-wa-solid">
             <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a5.526 5.526 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.852L0 24l6.335-1.611A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.37l-.36-.213-3.76.956.996-3.671-.234-.377A9.78 9.78 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/></svg>
